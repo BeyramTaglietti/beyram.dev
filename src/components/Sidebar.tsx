@@ -28,17 +28,6 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           </li>
           <li>
             <Link
-              href={'/projects'}
-              className={`flex flex-row gap-5 items-center cursor-pointer ${
-                pathname === '/projects' && 'bg-[#404040]'
-              } hover:bg-[#515151] rounded-lg p-2 pl-4`}
-            >
-              <MdDesktopMac />
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
               href={'/aboutme'}
               className={`flex flex-row gap-5 items-center cursor-pointer ${
                 pathname === '/aboutme' && 'bg-[#404040]'
@@ -46,6 +35,17 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
             >
               <FaUser />
               About Me
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={'/projects'}
+              className={`flex flex-row gap-5 items-center cursor-pointer ${
+                pathname === '/projects' && 'bg-[#404040]'
+              } hover:bg-[#515151] rounded-lg p-2 pl-4`}
+            >
+              <MdDesktopMac />
+              Projects
             </Link>
           </li>
           <li>
