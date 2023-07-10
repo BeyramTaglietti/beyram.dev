@@ -9,12 +9,12 @@ import Link from 'next/link';
 const Sidebar = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-row h-[100dvh] w-full">
-      <div className="h-full w-[200px] bg-red-500 fixed">
-        <ul className="p-3 flex flex-col gap-5">
+      <div className="h-full w-[250px] bg-[#171717] fixed">
+        <ul className="p-3 flex flex-col gap-3">
           <li>
             <Link
               href={'/'}
-              className="flex flex-row gap-5 items-center cursor-pointer border rounded-lg p-2 pl-4"
+              className="flex flex-row gap-5 items-center cursor-pointer hover:bg-[#404040] rounded-lg p-2 pl-4"
             >
               <AiFillHome />
               Home
@@ -23,7 +23,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           <li>
             <Link
               href={'/projects'}
-              className="flex flex-row gap-5 items-center cursor-pointer border rounded-lg p-2 pl-4"
+              className="flex flex-row gap-5 items-center cursor-pointer hover:bg-[#404040] rounded-lg p-2 pl-4"
             >
               <MdDesktopMac />
               Projects
@@ -32,7 +32,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           <li>
             <Link
               href={'/aboutme'}
-              className="flex flex-row gap-5 items-center cursor-pointer border rounded-lg p-2 pl-4"
+              className="flex flex-row gap-5 items-center cursor-pointer hover:bg-[#404040] rounded-lg p-2 pl-4"
             >
               <FaUser />
               About Me
@@ -41,7 +41,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
           <li>
             <Link
               href={'/posts'}
-              className="flex flex-row gap-5 items-center cursor-pointer border rounded-lg p-2 pl-4"
+              className="flex flex-row gap-5 items-center cursor-pointer hover:bg-[#404040] rounded-lg p-2 pl-4"
             >
               <IoIosText />
               Posts
@@ -50,7 +50,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </ul>
       </div>
 
-      <div className="h-full w-full ml-[200px]">{children}</div>
+      <div className="h-full w-full ml-[250px] p-5">{children}</div>
     </div>
   );
 };
