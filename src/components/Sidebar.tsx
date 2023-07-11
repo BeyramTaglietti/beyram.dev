@@ -28,7 +28,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
                 href={route.link}
                 className={`flex flex-row gap-5 items-center cursor-pointer ${
                   pathname === route.link && 'bg-[#404040]'
-                } hover:bg-[#515151] rounded-lg p-2 md:pl-4 text-xl md:text-base justify-center md:justify-start`}
+                } hover:bg-[#515151] rounded-lg p-2 md:pl-4 text-xl md:text-sm justify-center md:justify-start`}
               >
                 {route.icon}
                 <span className="hidden md:block">{route.label}</span>

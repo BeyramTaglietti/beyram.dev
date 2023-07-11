@@ -2,8 +2,7 @@
 const nextConfig = {
   images: {
     domains: [
-      'firebasestorage.googleapis.com',
-      'texts.com',
+      'images.ctfassets.net',
     ],
   },
 };
