@@ -1,39 +1,47 @@
 import Image from 'next/image';
 
 import { Metadata } from 'next';
+import { client } from '@/contentful/config';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'My Projects',
 };
 
-const projects = [
-  {
-    name: 'Øpia',
-    imageUrl: 'https://texts.com/ogcover.png',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
-  {
-    name: 'Norse Venture',
-    imageUrl: 'https://texts.com/ogcover.png',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  },
-];
+interface Project {
+  name: string;
+  projectBackground: any;
+  description: any;
+}
 
-const Projects = () => {
+const getProjects = async () => {
+  const response = await client.getEntries({
+    content_type: 'project',
+  });
+
+  return response.items;
+};
+
+const Projects = async () => {
+  const projects: any = await getProjects();
+
   return (
     <>
-      {projects.map((project, index) => (
+    <h1 className='text-3xl mb-10'>This is a list of my <strong>Personal</strong> projects</h1>
+      {projects.map((project: any, index: number) => (
         <div className="flex flex-col gap-4" key={index}>
-          <h1 className="text-4xl">{project.name}</h1>
-          <Image
-            src={project.imageUrl}
-            alt={project.name}
-            height={250}
-            width={800}
-          />
-          <p>{project.description}</p>
+          <h1 className="text-4xl">{project.fields.title}</h1>
+          <Link href={project.fields.link} target='_blank'>
+            <Image
+              src={`https:${project.fields.background.fields.file.url}`}
+              alt={project.fields.title}
+              height={250}
+              width={800}
+              className="border border-gray-700 rounded-xl overflow-hidden"
+            />
+          </Link>
+          <div>{documentToReactComponents(project.fields.description)}</div>
           {index % 2 === 0 && (
             <hr className="h-px border-0 bg-gray-700 my-4"></hr>
           )}

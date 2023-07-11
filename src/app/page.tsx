@@ -11,7 +11,10 @@ export default function Home() {
         <Link href="https://github.com/BeyramTaglietti" target="_blank">
           <AiFillGithub />
         </Link>
-        <Link href="https://www.linkedin.com/in/beyram-taglietti" target='_blank'>
+        <Link
+          href="https://www.linkedin.com/in/beyram-taglietti"
+          target="_blank"
+        >
           <FaLinkedinIn />
         </Link>
       </div>
