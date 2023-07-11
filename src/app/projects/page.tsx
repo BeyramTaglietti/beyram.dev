@@ -9,12 +9,6 @@ export const metadata: Metadata = {
   title: 'My Projects',
 };
 
-interface Project {
-  name: string;
-  projectBackground: any;
-  description: any;
-}
-
 const getProjects = async () => {
   const response = await client.getEntries({
     content_type: 'project',
@@ -28,7 +22,7 @@ const Projects = async () => {
 
   return (
     <>
-    <h1 className='text-3xl mb-10'>This is a list of my <strong>Personal</strong> projects</h1>
+    <h1 className='text-4xl mb-12'>This is a list of my <strong>personal</strong> projects</h1>
       {projects.map((project: any, index: number) => (
         <div className="flex flex-col gap-4" key={index}>
           <h1 className="text-4xl">{project.fields.title}</h1>
@@ -36,12 +30,12 @@ const Projects = async () => {
             <Image
               src={`https:${project.fields.background.fields.file.url}`}
               alt={project.fields.title}
-              height={250}
-              width={800}
+              height={10}
+              width={700}
               className="border border-gray-700 rounded-xl overflow-hidden"
             />
           </Link>
-          <div>{documentToReactComponents(project.fields.description)}</div>
+          <div className='lg:mr-40 mt-8'>{documentToReactComponents(project.fields.description)}</div>
           {index % 2 === 0 && (
             <hr className="h-px border-0 bg-gray-700 my-4"></hr>
           )}

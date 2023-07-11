@@ -31,7 +31,7 @@ const AboutMe = () => {
         let me drop my hot takes:
       </p>
       <ul className="list-disc list-inside">
-        <li>Apple &gt; Google (like you haven&apos;t noticed 😒)</li>
+        <li>Apple &gt; Google</li>
         <li>Code editor &gt; IDE</li>
         <li>I don&apos;t like cryptocurrencies</li>
         <li>Coding on paper &gt; Angular</li>

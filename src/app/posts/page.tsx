@@ -1,5 +1,5 @@
 const Posts = () => {
-  return <h1>Posts Page</h1>;
+  return <h1>No posts here yet...</h1>;
 };
 
 export default Posts;
