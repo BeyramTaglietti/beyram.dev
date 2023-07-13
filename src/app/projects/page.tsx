@@ -31,7 +31,7 @@ const Projects = async () => {
             <Image
               src={`https:${project.fields.background.fields.file.url}`}
               alt={project.fields.title}
-              height={10}
+              height={400}
               width={700}
               className="border border-gray-700 rounded-xl overflow-hidden"
             />
