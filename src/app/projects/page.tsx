@@ -7,6 +7,8 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Personal Projects',
+  description:
+    "A list of my personal projects which I've been working on in my free time",
 };
 
 const getProjects = async () => {
