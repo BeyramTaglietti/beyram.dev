@@ -6,7 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'My Projects',
+  title: 'Personal Projects',
 };
 
 const getProjects = async () => {
@@ -22,11 +22,10 @@ const Projects = async () => {
 
   return (
     <>
-    <h1 className='text-4xl mb-12'>This is a list of my <strong>personal</strong> projects</h1>
       {projects.map((project: any, index: number) => (
         <div className="flex flex-col gap-4" key={index}>
           <h1 className="text-4xl">{project.fields.title}</h1>
-          <Link href={project.fields.link} target='_blank'>
+          <Link href={project.fields.link} target="_blank">
             <Image
               src={`https:${project.fields.background.fields.file.url}`}
               alt={project.fields.title}
@@ -35,7 +34,10 @@ const Projects = async () => {
               className="border border-gray-700 rounded-xl overflow-hidden"
             />
           </Link>
-          <div className='lg:mr-40 mt-8'>{documentToReactComponents(project.fields.description)}</div>
+          <div className="lg:mr-40 mt-4">
+            {documentToReactComponents(project.fields.description)}
+          </div>
+
           {index % 2 === 0 && (
             <hr className="h-px border-0 bg-gray-700 my-4"></hr>
           )}

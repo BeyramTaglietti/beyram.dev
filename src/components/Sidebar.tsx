@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
 const routes = [
   { label: 'Home', link: '/', icon: <AiFillHome /> },
   { label: 'About Me', link: '/aboutme', icon: <FaUser /> },
-  { label: 'Projects', link: '/projects', icon: <MdDesktopMac /> },
+  { label: 'Personal Projects', link: '/projects', icon: <MdDesktopMac /> },
   { label: 'Posts', link: '/posts', icon: <IoIosText /> },
 ];
 
