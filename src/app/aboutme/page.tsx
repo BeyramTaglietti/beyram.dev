@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Me',
   description:
-    'Software Developer from Italy specialized in frontend web development',
+    'Software Engineer from Italy specialized in web development',
 };
 
 const AboutMe = () => {
@@ -11,7 +11,7 @@ const AboutMe = () => {
     <div>
       <h1 className="text-4xl mb-5">Hi there 👋🏻</h1>
       <p className="mb-4">
-        I&apos;m a <strong>Frontend Developer</strong> from 🇮🇹 who{' '}
+        I&apos;m a <strong>Software Engineer</strong> from 🇮🇹 who{' '}
         <strong>LOVES</strong> his job and is on his path of being a developer
         capable of anything he wants to develop 😎 (is it ever gonna happen?)
       </p>
@@ -20,9 +20,8 @@ const AboutMe = () => {
         find interesting (I enjoy listening more than talking btw)
       </p>
       <p className="mb-4">
-        Even though I also can develop backend code, I enjoy frontend
-        development a lot more, I really love web design and designing a
-        beatiful website is always a priority... but I value a fast website more
+        I really love web design and designing a
+        beatiful website is always a priority... but I value a fast and secure website a lot more
         than a beatifull one 👻 (can&apos;t you tell from this website? I did my
         best ok?? 😤)
       </p>
