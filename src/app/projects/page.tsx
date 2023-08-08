@@ -26,18 +26,20 @@ const Projects = async () => {
     <>
       {projects.map((project: any, index: number) => (
         <div className="flex flex-col gap-4" key={index}>
-          <h1 className="text-4xl">{project.fields.title}</h1>
-          <Link href={project.fields.link} target="_blank">
-            <Image
-              src={`https:${project.fields.background.fields.file.url}`}
-              alt={project.fields.title}
-              height={400}
-              width={700}
-              className="border border-gray-700 rounded-xl overflow-hidden"
-            />
-          </Link>
-          <div className="lg:mr-40 mt-4">
-            {documentToReactComponents(project.fields.description)}
+          <div className="flex justify-center items-center flex-col gap-4 lg:px-14">
+            <h1 className="text-4xl w-full lg:max-w-[800px]">{project.fields.title}</h1>
+            <Link href={project.fields.link} target="_blank">
+              <Image
+                src={`https:${project.fields.background.fields.file.url}`}
+                alt={project.fields.title}
+                height={450}
+                width={800}
+                className="border border-gray-700 rounded-xl overflow-hidden"
+              />
+            </Link>
+            <div className="mt-4 text-justify lg:max-w-[800px]">
+              {documentToReactComponents(project.fields.description)}
+            </div>
           </div>
 
           {index % 2 === 0 && (
