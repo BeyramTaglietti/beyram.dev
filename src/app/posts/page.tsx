@@ -26,17 +26,24 @@ const Posts = async () => {
         <Link href={`/posts/${post.fields.link}`} key={index}>
           <div className="flex flex-col gap-4">
             <div className="flex justify-center items-center flex-col gap-4">
-              <h1 className="text-4xl w-full font-bold">{post.fields.title}</h1>
-              <Image
-                src={`https:${post.fields.background.fields.file.url}`}
-                alt={post.fields.title}
-                height={450}
-                width={900}
-                className="border border-gray-700 rounded-xl overflow-hidden"
-              />
+              <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex-1 flex flex-col gap-4 mt-2">
+                  <h1 className="text-4xl w-full font-bold">
+                    {post.fields.title}
+                  </h1>
 
-              <div className="mt-4 text-justify">
-                {post.fields.shortDescription}
+                  <div className='text-justify'>
+                    {post.fields.shortDescription}
+                  </div>
+                </div>
+                <Image
+                  src={`https:${post.fields.background.fields.file.url}`}
+                  alt={post.fields.title}
+                  width={0}
+                  height={0}
+                  sizes="100%"
+                  className="border border-gray-700 rounded-xl overflow-hidden w-full h-auto flex-1"
+                />
               </div>
             </div>
 
