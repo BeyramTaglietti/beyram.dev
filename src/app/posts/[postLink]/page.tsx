@@ -17,13 +17,7 @@ export async function generateMetadata({
 }: {
   params: { postLink: string };
 }): Promise<Metadata> {
-  // read route params
-  const id = params.postLink;
-
-  // fetch data
   const post: any = await getPost(params.postLink);
-
-  // optionally access and extend (rather than replace) parent metadata
 
   return {
     title: post.fields.title,
@@ -49,9 +43,7 @@ const Post = async ({ params }: { params: { postLink: string } }) => {
   return (
     <>
       <div className="flex justify-center items-center flex-col">
-        <h1 className="text-4xl w-full font-bold">
-          {post.fields.title}
-        </h1>
+        <h1 className="text-4xl w-full font-bold">{post.fields.title}</h1>
 
         <div className="mt-4 text-justify">
           {documentToReactComponents(post.fields.postContent, renderOptions)}
