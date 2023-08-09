@@ -38,7 +38,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </ul>
       </div>
 
-      <div className="h-full w-full pb-[100px] md:pb-5 md:ml-[250px] p-5 overflow-scroll">
+      <div className="h-full w-full pb-[100px] md:pb-5 md:ml-[250px] p-5 overflow-scroll lg:px-14">
         {children}
       </div>
     </div>

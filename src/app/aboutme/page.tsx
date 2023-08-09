@@ -2,14 +2,13 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Me',
-  description:
-    'Software Engineer from Italy specialized in web development',
+  description: 'Software Engineer from Italy specialized in web development',
 };
 
 const AboutMe = () => {
   return (
-    <div>
-      <h1 className="text-4xl mb-5">Hi there 👋🏻</h1>
+    <div className="flex justify-center flex-col">
+      <h1 className="text-4xl mb-5 font-bold">Hi there 👋🏻</h1>
       <p className="mb-4">
         I&apos;m a <strong>Software Engineer</strong> from 🇮🇹 who{' '}
         <strong>LOVES</strong> his job and is on his path of being a developer
@@ -20,10 +19,10 @@ const AboutMe = () => {
         find interesting (I enjoy listening more than talking btw)
       </p>
       <p className="mb-4">
-        I really love web design and designing a
-        beatiful website is always a priority... but I value a fast and secure website a lot more
-        than a beatifull one 👻 (can&apos;t you tell from this website? I did my
-        best ok?? 😤)
+        I really love web design and designing a beatiful website is always a
+        priority... but I value a fast and secure website a lot more than a
+        beatifull one 👻 (can&apos;t you tell from this website? I did my best
+        ok?? 😤)
       </p>
       <p className="mb-3">Here are my hot takes to break the ice:</p>
       <ul className="list-disc list-inside">

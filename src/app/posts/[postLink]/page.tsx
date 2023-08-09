@@ -48,15 +48,13 @@ const Post = async ({ params }: { params: { postLink: string } }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-4">
-        <div className="flex justify-center items-center flex-col gap-4 lg:px-14">
-          <h1 className="text-4xl w-full lg:max-w-[800px]">
-            {post.fields.title}
-          </h1>
+      <div className="flex justify-center items-center flex-col">
+        <h1 className="text-4xl w-full font-bold">
+          {post.fields.title}
+        </h1>
 
-          <div className="mt-4 text-justify lg:max-w-[800px]">
-            {documentToReactComponents(post.fields.postContent, renderOptions)}
-          </div>
+        <div className="mt-4 text-justify">
+          {documentToReactComponents(post.fields.postContent, renderOptions)}
         </div>
       </div>
     </>
