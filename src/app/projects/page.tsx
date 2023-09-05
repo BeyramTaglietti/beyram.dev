@@ -23,42 +23,36 @@ const Projects = async () => {
   const projects: any = await getProjects();
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       {projects.map((project: any, index: number) => (
-        <div className="flex flex-col gap-4" key={index}>
-          <div className="flex justify-center flex-col gap-4">
-            <div className="flex flex-col-reverse lg:flex-row gap-4">
-              <Link
-                href={project.fields.link}
-                target="_blank"
-                className="flex-1"
-              >
-                <Image
-                  src={`https:${project.fields.background.fields.file.url}`}
-                  alt={project.fields.title}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="border border-gray-700 rounded-xl overflow-hidden w-full"
-                />
-              </Link>
-              <div className='flex-1 flex flex-col gap-4 mt-2'>
-                <h1 className="text-4xl w-full font-bold">
-                  {project.fields.title}
-                </h1>
-                <div className="text-justify">
-                  {documentToReactComponents(project.fields.description)}
-                </div>
+        <Link
+          href={project.fields.link}
+          target="_blank"
+          className="flex justify-center flex-col gap-4 bg-[#333333] p-3 rounded-xl"
+          key={project.fields.link}
+        >
+          <div className="flex flex-col-reverse lg:flex-row gap-4">
+            <div className="flex-1">
+              <Image
+                src={`https:${project.fields.background.fields.file.url}`}
+                alt={project.fields.title}
+                height={300}
+                width={600}
+                className="border border-gray-700 rounded-xl w-full h-[350px] object-cover"
+              />
+            </div>
+            <div className="flex-1 flex flex-col gap-4 mt-2">
+              <h1 className="text-4xl w-full font-bold">
+                {project.fields.title}
+              </h1>
+              <div className="text-justify">
+                {documentToReactComponents(project.fields.description)}
               </div>
             </div>
           </div>
-
-          {index % 2 === 0 && (
-            <hr className="h-px border-0 bg-gray-700 my-4"></hr>
-          )}
-        </div>
+        </Link>
       ))}
-    </>
+    </div>
   );
 };
 

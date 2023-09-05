@@ -22,8 +22,12 @@ const Posts = async () => {
 
   return (
     <>
-      {posts.map((post: any, index: number) => (
-        <Link href={`/posts/${post.fields.link}`} key={index}>
+      {posts.map((post: any) => (
+        <Link
+          href={`/posts/${post.fields.link}`}
+          key={post.fields.link}
+          className="flex justify-center flex-col gap-4 bg-[#333333] p-3 rounded-xl focus:outline-none"
+        >
           <div className="flex flex-col gap-4">
             <div className="flex justify-center items-center flex-col gap-4">
               <div className="flex flex-col lg:flex-row gap-4">
@@ -32,24 +36,21 @@ const Posts = async () => {
                     {post.fields.title}
                   </h1>
 
-                  <div className='text-justify'>
+                  <div className="text-justify">
                     {post.fields.shortDescription}
                   </div>
                 </div>
-                <Image
-                  src={`https:${post.fields.background.fields.file.url}`}
-                  alt={post.fields.title}
-                  width={0}
-                  height={0}
-                  sizes="100%"
-                  className="border border-gray-700 rounded-xl overflow-hidden w-full h-auto flex-1"
-                />
+                <div className="flex-1">
+                  <Image
+                    src={`https:${post.fields.background.fields.file.url}`}
+                    alt={post.fields.title}
+                    height={300}
+                    width={600}
+                    className="border border-gray-700 rounded-xl w-full h-[350px] object-cover  "
+                  />
+                </div>
               </div>
             </div>
-
-            {index % 2 === 0 && (
-              <hr className="h-px border-0 bg-gray-700 my-4"></hr>
-            )}
           </div>
         </Link>
       ))}

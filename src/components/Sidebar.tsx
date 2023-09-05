@@ -22,8 +22,8 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
     <div className="flex h-[100dvh] w-full">
       <div className="h-[80px] w-full md:h-full md:w-[250px] bg-[#171717] fixed bottom-0 items-center">
         <ul className="p-3 flex md:flex-col gap-3 justify-evenly md:justify-start h-full items-center md:items-start">
-          {routes.map((route, index) => (
-            <li key={index} className="w-full">
+          {routes.map((route) => (
+            <li key={route.link} className="w-full">
               <Link
                 href={route.link}
                 className={`flex flex-row gap-5 items-center cursor-pointer ${
@@ -38,7 +38,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
         </ul>
       </div>
 
-      <div className="h-full w-full pb-[100px] md:pb-5 md:ml-[250px] p-5 overflow-scroll lg:px-14">
+      <div className="h-full w-full pb-[100px] md:pb-5 md:ml-[250px] p-2 pt-4 overflow-scroll lg:px-14">
         {children}
       </div>
     </div>

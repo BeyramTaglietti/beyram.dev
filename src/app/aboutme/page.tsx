@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About Me',
@@ -7,31 +8,31 @@ export const metadata: Metadata = {
 
 const AboutMe = () => {
   return (
-    <div className="flex justify-center flex-col">
+    <div className="flex justify-center flex-col p-3">
       <h1 className="text-4xl mb-5 font-bold">Hi there 👋🏻</h1>
       <p className="mb-4">
         I&apos;m a <strong>Software Engineer</strong> from 🇮🇹 who{' '}
-        <strong>LOVES</strong> his job and is on his path of being a developer
-        capable of anything he wants to develop 😎 (is it ever gonna happen?)
+        <strong>LOVES</strong> coding and staying in touch with the latest news
+        in the field
       </p>
       <p className="mb-4">
         Other than coding I also enjoy traveling 🌍 and talking to people who I
-        find interesting (I enjoy listening more than talking btw)
+        find interesting
       </p>
       <p className="mb-4">
         I really love web design and designing a beatiful website is always a
-        priority... but I value a fast and secure website a lot more than a
-        beatifull one 👻 (can&apos;t you tell from this website? I did my best
-        ok?? 😤)
+        priority... but I value performance, development speed and security a
+        lot more 👻 (can&apos;t you tell from this website? I did my best ok??
+        😤)
       </p>
-      <p className="mb-3">Here are my hot takes to break the ice:</p>
-      <ul className="list-disc list-inside">
-        <li>Apple &gt; Google</li>
-        <li>Code editor &gt; IDE</li>
-        <li>Cryptocurrencies are a no no</li>
-        <li>Anything &gt; Angular</li>
-        <li>I&apos;m gonna stop here...</li>
-      </ul>
+
+      <Image
+        src="https://media.tenor.com/Q823-830Ri0AAAAd/christian-bale-american-psycho.gif"
+        width={0}
+        height={0}
+        alt="gif representation of my current mood"
+        className="rounded-xl h-full w-full md:1/2 lg:w-2/4"
+      />
     </div>
   );
 };
