@@ -46,7 +46,7 @@ const Posts = async () => {
                     alt={post.fields.title}
                     height={300}
                     width={600}
-                    className="border border-gray-700 rounded-xl w-full h-[350px] object-cover  "
+                    className="rounded-xl w-full h-[350px] object-cover  "
                   />
                 </div>
               </div>

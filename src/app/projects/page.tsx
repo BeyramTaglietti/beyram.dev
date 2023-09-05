@@ -38,7 +38,7 @@ const Projects = async () => {
                 alt={project.fields.title}
                 height={300}
                 width={600}
-                className="border border-gray-700 rounded-xl w-full h-[350px] object-cover"
+                className="rounded-xl w-full h-[350px] object-cover"
               />
             </div>
             <div className="flex-1 flex flex-col gap-4 mt-2">
