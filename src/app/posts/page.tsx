@@ -1,4 +1,5 @@
 import { client } from '@/contentful/config';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,18 +32,18 @@ const Posts = async () => {
         >
           <div className="flex flex-col gap-4">
             <div className="flex justify-center items-center flex-col gap-4">
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className="flex flex-col lg:flex-row gap-6">
                 <div className="flex-1 2xl:flex-2 flex flex-col mt-2 justify-between gap-4">
                   <div className="flex flex-col gap-4">
                     <h1 className="text-4xl w-full font-bold">
                       {post.fields.title}
                     </h1>
 
-                    <div className="text-justify">
-                      {post.fields.shortDescription}
+                    <div className="line-clamp-6 text-justify">
+                      {documentToReactComponents(post.fields.postContent)}
                     </div>
                   </div>
-                  <div className='flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary'>
+                  <div className="flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary">
                     <span>
                       <BiSolidTimeFive />
                     </span>
