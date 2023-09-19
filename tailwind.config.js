@@ -6,6 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      primary: 'rgba(51, 51, 51, 1)',
+      secondary: 'rgba(81, 81, 81, 1)',
+      sidebar: 'rgba(23, 23, 23, 1)',
+    },
     extend: {
       flex: {
         2: '2 2 0%',

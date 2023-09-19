@@ -2,6 +2,7 @@ import { client } from '@/contentful/config';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BiSolidTimeFive } from 'react-icons/bi';
 
 export const metadata: Metadata = {
   title: 'Blog Posts',
@@ -26,18 +27,26 @@ const Posts = async () => {
         <Link
           href={`/posts/${post.fields.link}`}
           key={post.fields.link}
-          className="flex justify-center flex-col gap-4 bg-[#333333] p-3 rounded-xl focus:outline-none"
+          className="flex justify-center flex-col gap-4 bg-primary p-3 rounded-xl focus:outline-none"
         >
           <div className="flex flex-col gap-4">
             <div className="flex justify-center items-center flex-col gap-4">
               <div className="flex flex-col lg:flex-row gap-4">
-                <div className="flex-1 2xl:flex-2 flex flex-col gap-4 mt-2">
-                  <h1 className="text-4xl w-full font-bold">
-                    {post.fields.title}
-                  </h1>
+                <div className="flex-1 2xl:flex-2 flex flex-col mt-2 justify-between gap-4">
+                  <div className="flex flex-col gap-4">
+                    <h1 className="text-4xl w-full font-bold">
+                      {post.fields.title}
+                    </h1>
 
-                  <div className="text-justify">
-                    {post.fields.shortDescription}
+                    <div className="text-justify">
+                      {post.fields.shortDescription}
+                    </div>
+                  </div>
+                  <div className='flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary'>
+                    <span>
+                      <BiSolidTimeFive />
+                    </span>
+                    <span>{post.fields.readingTime} min read</span>
                   </div>
                 </div>
                 <div className="flex-1 overflow-hidden rounded-xl">

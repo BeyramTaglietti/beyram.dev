@@ -20,15 +20,15 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="flex h-[100dvh] w-full">
-      <div className="h-[80px] w-full md:h-full md:w-[250px] bg-[#171717] fixed bottom-0 items-center">
+      <div className="h-[80px] w-full md:h-full md:w-[250px] bg-sidebar fixed bottom-0 items-center">
         <ul className="p-3 flex md:flex-col gap-3 justify-evenly md:justify-start h-full items-center md:items-start">
           {routes.map((route) => (
             <li key={route.link} className="w-full">
               <Link
                 href={route.link}
                 className={`flex flex-row gap-5 items-center cursor-pointer ${
-                  pathname === route.link && 'bg-[#404040]'
-                } hover:bg-[#515151] rounded-lg p-2 md:pl-4 text-xl md:text-sm justify-center md:justify-start`}
+                  pathname === route.link && 'bg-primary'
+                } hover:bg-secondary rounded-lg p-2 md:pl-4 text-xl md:text-sm justify-center md:justify-start`}
               >
                 {route.icon}
                 <span className="hidden md:block">{route.label}</span>

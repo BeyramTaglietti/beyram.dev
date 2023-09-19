@@ -28,7 +28,7 @@ const Projects = async () => {
         <Link
           href={project.fields.link}
           target="_blank"
-          className="flex justify-center flex-col gap-4 bg-[#333333] p-3 rounded-xl"
+          className="flex justify-center flex-col gap-4 bg-primary p-3 rounded-xl"
           key={project.fields.link}
         >
           <div className="flex flex-col-reverse lg:flex-row gap-4 h-full">
