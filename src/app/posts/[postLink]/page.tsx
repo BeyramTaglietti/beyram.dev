@@ -59,12 +59,14 @@ const renderOptions = {
   renderNode: {
     'embedded-asset-block': (node: any) => {
       return (
-        <Image
-          src={`https:${node.data.target.fields.file.url}`}
-          height={node.data.target.fields.file.details.image.height}
-          width={node.data.target.fields.file.details.image.width}
-          alt="blog image"
-        />
+        <div className='flex justify-center py-10'>
+          <Image
+            src={`https:${node.data.target.fields.file.url}`}
+            height={node.data.target.fields.file.details.image.height}
+            width={node.data.target.fields.file.details.image.width}
+            alt="blog image"
+          />
+        </div>
       );
     },
   },

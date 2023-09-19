@@ -31,7 +31,7 @@ const Posts = async () => {
           <div className="flex flex-col gap-4">
             <div className="flex justify-center items-center flex-col gap-4">
               <div className="flex flex-col lg:flex-row gap-4">
-                <div className="flex-1 flex flex-col gap-4 mt-2">
+                <div className="flex-1 2xl:flex-2 flex flex-col gap-4 mt-2">
                   <h1 className="text-4xl w-full font-bold">
                     {post.fields.title}
                   </h1>
@@ -40,13 +40,13 @@ const Posts = async () => {
                     {post.fields.shortDescription}
                   </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 overflow-hidden rounded-xl">
                   <Image
                     src={`https:${post.fields.background.fields.file.url}`}
                     alt={post.fields.title}
                     height={300}
                     width={600}
-                    className="rounded-xl w-full h-[350px] object-cover  "
+                    className="w-full h-full object-cover "
                   />
                 </div>
               </div>

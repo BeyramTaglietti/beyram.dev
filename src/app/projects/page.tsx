@@ -31,17 +31,17 @@ const Projects = async () => {
           className="flex justify-center flex-col gap-4 bg-[#333333] p-3 rounded-xl"
           key={project.fields.link}
         >
-          <div className="flex flex-col-reverse lg:flex-row gap-4">
-            <div className="flex-1">
+          <div className="flex flex-col-reverse lg:flex-row gap-4 h-full">
+            <div className="flex-1 overflow-hidden rounded-xl ">
               <Image
                 src={`https:${project.fields.background.fields.file.url}`}
                 alt={project.fields.title}
                 height={300}
                 width={600}
-                className="rounded-xl w-full h-[350px] object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex-1 flex flex-col gap-4 mt-2">
+            <div className="flex-1 2xl:flex-2 flex flex-col gap-4 mt-2">
               <h1 className="text-4xl w-full font-bold">
                 {project.fields.title}
               </h1>

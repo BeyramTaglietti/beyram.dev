@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const AboutMe = () => {
   return (
     <div className="flex justify-center flex-col p-3">
-      <h1 className="text-4xl mb-5 font-bold">Hi there 👋🏻</h1>
+      <h1 className="text-4xl xl:text-6xl mb-5 font-bold">Hi there 👋🏻</h1>
       <p className="mb-4">
         I&apos;m a <strong>Software Engineer</strong> from 🇮🇹 who{' '}
         <strong>LOVES</strong> coding and staying in touch with the latest news
