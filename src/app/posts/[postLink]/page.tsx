@@ -1,4 +1,5 @@
 import { client } from '@/contentful/config';
+import { MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
 import { getPosts } from '../page';
@@ -43,10 +44,15 @@ const Post = async ({ params }: { params: { postLink: string } }) => {
   return (
     <>
       <div className="flex justify-center items-center flex-col">
-        <h1 className="text-4xl w-full font-bold">{post.fields.title}</h1>
+        <div className="w-[90%] lg:w-[80%] xl:w-[60%]">
+          <h1 className="text-4xl w-full font-bold">{post.fields.title}</h1>
 
-        <div className="mt-4 text-justify">
-          {documentToReactComponents(post.fields.postContent, renderOptions)}
+          <div className="mt-4 text-justify flex flex-col gap-6">
+            {documentToReactComponents(
+              post.fields.postContent,
+              renderOptions as any,
+            )}
+          </div>
         </div>
       </div>
     </>
@@ -59,7 +65,7 @@ const renderOptions = {
   renderNode: {
     'embedded-asset-block': (node: any) => {
       return (
-        <div className='flex justify-center py-10'>
+        <div className="flex justify-center py-4">
           <Image
             src={`https:${node.data.target.fields.file.url}`}
             height={node.data.target.fields.file.details.image.height}
@@ -69,5 +75,15 @@ const renderOptions = {
         </div>
       );
     },
+    [INLINES.HYPERLINK]: ({ data }: { data: any }, children: string) => (
+      <a className="font-bold text-blue-600" target="_blank" href={data.uri}>
+        {children}
+      </a>
+    ),
+  },
+  renderMark: {
+    [MARKS.BOLD]: (text: string) => (
+      <span className="font-bold text-orange-400">{text}</span>
+    ),
   },
 };
