@@ -1,9 +1,9 @@
 import { client } from '@/contentful/config';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BiSolidTimeFive } from 'react-icons/bi';
+import { BiSolidCalendarEvent, BiSolidTimeFive } from 'react-icons/bi';
+import dayjs from 'dayjs';
 
 export const metadata: Metadata = {
   title: 'Blog Posts',
@@ -39,11 +39,19 @@ const Posts = async () => {
                       {post.fields.title}
                     </h1>
                   </div>
-                  <div className="flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary">
-                    <span>
-                      <BiSolidTimeFive />
-                    </span>
-                    <span>{post.fields.readingTime} min read</span>
+                  <div className="flex gap-2">
+                    <div className="flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary">
+                      <span>
+                        <BiSolidTimeFive />
+                      </span>
+                      <span>{post.fields.readingTime} min read</span>
+                    </div>
+                    <div className="flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary">
+                      <span>
+                        <BiSolidCalendarEvent />
+                      </span>
+                      <span>{dayjs(post.fields.date).format('MMMM YYYY')}</span>
+                    </div>
                   </div>
                 </div>
                 <div className="flex-1 overflow-hidden rounded-xl">
