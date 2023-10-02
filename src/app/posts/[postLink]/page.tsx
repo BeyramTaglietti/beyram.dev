@@ -61,7 +61,7 @@ const Post = async ({ params }: { params: { postLink: string } }) => {
 
 export default Post;
 
-export const renderOptions = {
+const renderOptions = {
   renderNode: {
     'embedded-asset-block': (node: any) => {
       return (
