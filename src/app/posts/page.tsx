@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiSolidTimeFive } from 'react-icons/bi';
+import { renderOptions } from './[postLink]/page';
 
 export const metadata: Metadata = {
   title: 'Blog Posts',
@@ -38,10 +39,6 @@ const Posts = async () => {
                     <h1 className="text-4xl w-full font-bold">
                       {post.fields.title}
                     </h1>
-
-                    <div className="line-clamp-6 text-justify">
-                      {documentToReactComponents(post.fields.postContent)}
-                    </div>
                   </div>
                   <div className="flex gap-2 items-center py-1 px-3 rounded-lg w-max bg-secondary">
                     <span>
