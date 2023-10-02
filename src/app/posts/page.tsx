@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiSolidTimeFive } from 'react-icons/bi';
-import { renderOptions } from './[postLink]/page';
 
 export const metadata: Metadata = {
   title: 'Blog Posts',
