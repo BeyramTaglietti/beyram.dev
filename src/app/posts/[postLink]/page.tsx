@@ -43,7 +43,7 @@ const Post = async ({ params }: { params: { postLink: string } }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-col">
+      <div className="flex justify-center items-center flex-col py-4 lg:py-12">
         <div className="w-[90%] lg:w-[80%] xl:w-[60%]">
           <h1 className="text-4xl w-full font-bold">{post.fields.title}</h1>
 
