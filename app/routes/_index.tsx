@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
   return [
     { title: "Beyram Taglietti" },
     {
-      title: "description",
+      name: "description",
       content:
         "I'm Beyram Taglietti, a software engineer passionate about his job and on his way to learn as much as he can to become a better developer",
     },
