@@ -14,8 +14,8 @@ const routes = [
 
 const Sidebar = () => {
   return (
-    <div className="flex h-[100dvh] w-full">
-      <div className="h-[80px] w-full md:h-full md:w-[250px] bg-sidebar fixed bottom-0 items-center">
+    <div className="flex h-[100dvh] w-full flex-col-reverse md:flex-row">
+      <div className="h-[80px] md:h-full w-full md:w-[250px] lg:w-[400px]  bg-sidebar items-center">
         <ul className="p-3 flex md:flex-col gap-3 justify-evenly md:justify-start h-full items-center md:items-start">
           {routes.map((route) => (
             <li key={route.link} className="w-full">
@@ -37,7 +37,7 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="h-full w-full pb-[100px] md:pb-5 md:ml-[250px] p-2 pt-4 overflow-scroll lg:px-14">
+      <div className="h-full w-full py-5 px-2 overflow-scroll lg:px-14 flex-1">
         <Outlet />
       </div>
     </div>
