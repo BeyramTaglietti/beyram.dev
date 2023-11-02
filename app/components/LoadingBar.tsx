@@ -34,7 +34,7 @@ const LoadingBar = ({
   return (
     <div className="w-full h-1 flex absolute">
       <span
-        className={`${width} h-full bg-white duration-500 transition-all`}
+        className={`${width} h-full bg-white duration-500 transition-all ease-out`}
       ></span>
     </div>
   );
