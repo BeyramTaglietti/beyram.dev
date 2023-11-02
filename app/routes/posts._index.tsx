@@ -39,9 +39,9 @@ const Posts = () => {
           {({ isTransitioning }) => (
             <div className="flex flex-col gap-4">
               <div className="flex justify-center items-center flex-col gap-4">
-                <div className="flex flex-col lg:flex-row gap-6 h-72">
+                <div className="flex flex-col lg:flex-row gap-6 min-h-72">
                   <div className="flex-1 2xl:flex-2 flex flex-col mt-2 justify-between gap-4">
-                    <div className="flex flex-col justify-between h-full">
+                    <div className="flex flex-col h-full gap-4">
                       <h1
                         className="text-4xl w-full font-bold"
                         style={
