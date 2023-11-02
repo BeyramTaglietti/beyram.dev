@@ -80,7 +80,7 @@ const renderOptions = {
       children: string
     ) => (
       <a
-        className="font-bold text-blue-600"
+        className="font-bold text-blue-600 underline"
         target="_blank"
         rel="noreferrer"
         href={data.uri}
