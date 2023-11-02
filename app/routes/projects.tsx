@@ -48,9 +48,9 @@ const Projects = () => {
               <h1 className="text-4xl w-full font-bold">
                 {project.fields.title}
               </h1>
-              <p>
+              <div>
                 {documentToReactComponents(project.fields.description)}
-              </p>
+              </div>
             </div>
           </div>
         </Link>

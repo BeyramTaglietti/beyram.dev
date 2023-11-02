@@ -2,7 +2,11 @@ import { useLoaderData } from "@remix-run/react";
 import { client } from "~/contentful/config.server";
 
 import contentTypes from "@contentful/rich-text-types";
-import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
+import {
+  redirect,
+  type LoaderFunctionArgs,
+  type MetaFunction,
+} from "@remix-run/node";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
@@ -21,6 +25,10 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     content_type: "post",
     "fields.link": params.link,
   });
+
+  if (response.items.length === 0) {
+    return redirect("/posts");
+  }
 
   return response.items[0];
 };
