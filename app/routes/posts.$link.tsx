@@ -29,33 +29,31 @@ const Post = () => {
   const post = useLoaderData<typeof loader>();
 
   return (
-    <>
-      <div className="flex justify-center items-center flex-col py-4 lg:py-12">
-        <div className="w-[90%] lg:w-[80%] xl:w-[60%]">
-          <h1
-            className="text-4xl w-full font-bold"
-            style={{ viewTransitionName: "post-title" }}
-          >
-            {post.fields.title as string}
-          </h1>
+    <div className="flex justify-center items-center flex-col py-4 lg:py-12">
+      <div className="w-[90%] lg:w-[80%] xl:w-[60%]">
+        <h1
+          className="text-4xl w-full font-bold"
+          style={{ viewTransitionName: "post-title" }}
+        >
+          {post.fields.title as string}
+        </h1>
 
-          <div className="mt-4 text-justify flex flex-col gap-6">
-            <img
-              src={`https:${(post.fields.background as any).fields.file.url}`}
-              alt={post.fields.title as string}
-              height={300}
-              width={600}
-              className="w-full h-full object-cover"
-              style={{ viewTransitionName: "post-image" }}
-            />
-            {documentToReactComponents(
-              post.fields.postContent as any,
-              renderOptions as any
-            )}
-          </div>
+        <div className="mt-4 text-justify flex flex-col gap-6">
+          <img
+            src={`https:${(post.fields.background as any).fields.file.url}`}
+            alt={post.fields.title as string}
+            height={300}
+            width={600}
+            className="w-full h-full object-cover"
+            style={{ viewTransitionName: "post-image" }}
+          />
+          {documentToReactComponents(
+            post.fields.postContent as any,
+            renderOptions as any
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
