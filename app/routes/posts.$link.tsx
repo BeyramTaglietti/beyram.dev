@@ -8,6 +8,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
   return [
     { title: post?.fields.title },
+    { name: "description", content: post?.fields.shortDescription },
     {
       name: "og:image",
       content: [`https:${(post as any).fields.background.fields.file.url}`],
