@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -13,6 +13,17 @@ import Sidebar from "./components/Sidebar";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Beyram Taglietti" },
+    {
+      name: "description",
+      content:
+        "I'm Beyram Taglietti, a Software Engineer from Italy specialized in Frontend Development",
+    },
+  ];
+};
 
 export default function App() {
   return (

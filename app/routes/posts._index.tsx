@@ -10,7 +10,7 @@ export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
     {
       name: "description",
       content:
-        "Here's a list of blog posts written by me about my developer experience",
+        "A little blog page where I talk about my experience and adventures in the amazing dev world",
     },
   ];
 };

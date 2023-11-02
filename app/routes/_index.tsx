@@ -1,18 +1,6 @@
 import { Link } from "@remix-run/react";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import type { MetaFunction } from "@remix-run/node";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Beyram Taglietti" },
-    {
-      name: "description",
-      content:
-        "I'm Beyram Taglietti, a software engineer passionate about his job and on his way to learn as much as he can to become a better developer",
-    },
-  ];
-};
 
 export default function Index() {
   return (

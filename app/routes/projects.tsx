@@ -3,7 +3,7 @@ import { client } from "~/contentful/config.server";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
+export const meta: MetaFunction<typeof loader> = () => {
   return [
     { title: "Personal Projects" },
     {
