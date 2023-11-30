@@ -1,10 +1,9 @@
 import { NavLink, Outlet } from "@remix-run/react";
 
 import { AiFillHome } from "react-icons/ai";
-import { MdDesktopMac } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { IoIosText } from "react-icons/io";
-import LoadingBar from "./LoadingBar";
+import { MdDesktopMac } from "react-icons/md";
 
 const routes = [
   { label: "Home", link: "/", icon: <AiFillHome /> },
@@ -17,7 +16,6 @@ const Sidebar = () => {
   return (
     <div className="flex h-[100dvh] w-full flex-col-reverse md:flex-row">
       <div className="h-[80px] md:h-full w-full md:w-[250px] 2xl:w-[400px] bg-sidebar items-center">
-        <LoadingBar />
         <ul className="p-3 flex md:flex-col gap-3 justify-evenly md:justify-start h-full items-center md:items-start">
           {routes.map((route) => (
             <li key={route.link} className="w-full">
