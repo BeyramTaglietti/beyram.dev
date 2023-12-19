@@ -37,7 +37,7 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="h-full w-full py-5 px-2 overflow-scroll lg:px-14 flex-1">
+      <div className="h-full w-full py-5 px-2 overflow-auto lg:px-14 flex-1">
         <Outlet />
       </div>
     </div>

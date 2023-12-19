@@ -1,7 +1,8 @@
-import { Link, useLoaderData } from "@remix-run/react";
-import { client } from "~/contentful/config.server";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import type { MetaFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { client } from "~/contentful/config.server";
+import type { Project } from "~/models/project.model";
 
 export const meta: MetaFunction<typeof loader> = () => {
   return [
@@ -23,35 +24,28 @@ export const loader = async () => {
 };
 
 const Projects = () => {
-  const projects = useLoaderData<typeof loader>();
+  const projects = useLoaderData<Project[]>();
 
   return (
-    <div className="flex flex-col gap-4">
-      {projects.map((project: any, index: number) => (
+    <div className="flex flex-col gap-4 items-center">
+      {projects.map(({ fields }) => (
         <Link
-          to={project.fields.link}
-          target="_blank"
-          className="flex justify-center flex-col gap-4 bg-primary p-3 rounded-xl"
-          key={project.fields.link}
+          key={fields.link}
+          to={fields.link}
+          className="min-h-[300px] max-w-[1000px] flex flex-col lg:flex-row gap-4 bg-primary rounded-xl p-3"
         >
-          <div className="flex flex-col-reverse lg:flex-row gap-4 h-full">
-            <div className="flex-1 overflow-hidden rounded-xl ">
-              <img
-                src={`https:${project.fields.background.fields.file.url}`}
-                alt={project.fields.title}
-                height={300}
-                width={600}
-                className="w-full h-full object-cover"
-              />
+          <div className="w-full lg:w-2/5 rounded-xl overflow-hidden">
+            <img
+              src={`https:${fields.background.fields.file.url}`}
+              alt={fields.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-full lg:w-3/5 flex flex-col gap-4">
+            <div>
+              <h1 className="font-bold text-4xl">{fields.title}</h1>
             </div>
-            <div className="flex-1 2xl:flex-2 flex flex-col gap-4 mt-2">
-              <h1 className="text-4xl w-full font-bold">
-                {project.fields.title}
-              </h1>
-              <div>
-                {documentToReactComponents(project.fields.description)}
-              </div>
-            </div>
+            <div>{documentToReactComponents(fields.description as any)}</div>
           </div>
         </Link>
       ))}

@@ -19,11 +19,9 @@ const AboutMe = () => {
       </p>
 
       <img
-        src="https://media.tenor.com/EvNCyjP1IxQAAAAd/feliz-alegre.gif"
-        width={0}
-        height={0}
+        src="https://media1.tenor.com/m/W7O9HyghmRAAAAAC/shrek-angry.gif"
         alt="gif representation of my current mood"
-        className="rounded-xl h-full w-full md:1/2 lg:w-2/4"
+        className="rounded-xl w-[500px]"
       />
     </div>
   );
