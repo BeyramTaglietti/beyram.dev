@@ -38,7 +38,7 @@ const Posts = () => {
   const posts = useLoaderData<Post[]>();
 
   return (
-    <>
+    <div className="flex flex-col gap-4 items-center">
       {posts.map(({ fields }) => (
         <NavLink
           key={fields.link}
@@ -90,7 +90,7 @@ const Posts = () => {
           )}
         </NavLink>
       ))}
-    </>
+    </div>
   );
 };
 
