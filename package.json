@@ -16,7 +16,6 @@
     "@remix-run/node": "^2.1.0",
     "@remix-run/react": "^2.1.0",
     "@remix-run/serve": "^2.1.0",
-    "@vercel/analytics": "^1.1.1",
     "contentful": "^10.6.5",
     "dayjs": "^1.11.10",
     "isbot": "^3.6.8",

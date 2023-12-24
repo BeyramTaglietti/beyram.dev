@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { Analytics } from "@vercel/analytics/react";
 import stylesheet from "~/tailwind.css";
 import Sidebar from "./components/Sidebar";
 
@@ -44,7 +43,6 @@ export default function App() {
             <Outlet />
           </div>
         </div>
-        <Analytics />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
