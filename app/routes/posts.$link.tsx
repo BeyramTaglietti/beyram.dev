@@ -1,13 +1,13 @@
 import { useLoaderData } from "@remix-run/react";
 import { client } from "~/contentful/config.server";
 
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import contentTypes from "@contentful/rich-text-types";
 import {
   redirect,
   type LoaderFunctionArgs,
   type MetaFunction,
 } from "@remix-run/node";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
   return [
@@ -37,7 +37,7 @@ const Post = () => {
   const post = useLoaderData<typeof loader>();
 
   return (
-    <div className="flex justify-center items-center flex-col py-4 lg:py-12">
+    <article className="flex justify-center items-center flex-col py-4 lg:py-12">
       <div className="w-[90%] lg:w-[80%] xl:w-[60%]">
         <h1
           className="text-4xl w-full font-bold"
@@ -61,7 +61,7 @@ const Post = () => {
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
