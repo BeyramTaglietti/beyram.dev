@@ -1,6 +1,5 @@
 import { Link } from "@remix-run/react";
-import { AiFillGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 export default function Index() {
   return (
@@ -14,7 +13,7 @@ export default function Index() {
       </h3>
       <div className="text-3xl xl:text-4xl flex flex-row gap-8">
         <Link to="https://github.com/BeyramTaglietti" target="_blank">
-          <AiFillGithub />
+          <FaGithub />
         </Link>
         <Link to="https://www.linkedin.com/in/beyram-taglietti" target="_blank">
           <FaLinkedinIn />

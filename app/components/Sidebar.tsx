@@ -14,7 +14,7 @@ const routes = [
 
 const Sidebar = () => {
   return (
-    <div className="h-[80px] md:h-full w-full md:w-[250px] 2xl:w-[400px] bg-sidebar items-center">
+    <div className="h-[80px] md:h-full w-full md:w-[250px] 2xl:w-[350px] bg-sidebar items-center">
       <nav className="p-3 flex md:flex-col gap-3 justify-evenly md:justify-start h-full items-center md:items-start">
         {routes.map((route) => (
           <NavLink

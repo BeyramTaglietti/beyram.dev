@@ -1,12 +1,11 @@
-export type Post = {
-  fields: Fields;
-};
+import type { Image } from "./image.model";
 
-export type Fields = {
-  background: { fields: { file: { url: string } } };
+export type PostModel = {
+  background: Image;
   link: string;
   title: string;
   shortDescription: string;
   readingTime: number;
   date: Date;
+  postContent: any;
 };

@@ -1,9 +1,7 @@
-export type Project = {
-  fields: Fields;
-};
+import type { Image } from "./image.model";
 
-export type Fields = {
-  background: { fields: { file: { url: string } } };
+export type Project = {
+  background: Image;
   link: string;
   title: string;
   description: string;

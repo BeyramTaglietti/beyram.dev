@@ -39,8 +39,10 @@ export default function App() {
         <div className="flex h-[100dvh] w-full flex-col-reverse md:flex-row">
           <Sidebar />
 
-          <main className="h-full w-full py-5 px-2 overflow-auto lg:px-14 flex-1">
-            <Outlet />
+          <main className="h-full py-5 px-2 overflow-auto lg:px-14 flex-1 flex justify-center">
+            <div className="max-w-[1000px]">
+              <Outlet />
+            </div>
           </main>
         </div>
         <ScrollRestoration />

@@ -21,7 +21,7 @@ const AboutMe = () => {
       <img
         src="https://media1.tenor.com/m/W7O9HyghmRAAAAAC/shrek-angry.gif"
         alt="gif representation of my current mood"
-        className="rounded-xl w-[500px]"
+        className="rounded-xl"
       />
     </div>
   );
