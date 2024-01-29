@@ -133,7 +133,11 @@ const renderOptions = {
     ),
     [contentTypes.BLOCKS.HEADING_2]: (node: any) => {
       const { value } = node.content[0];
-      return <h2 className="text-3xl font-bold text-orange-400">{value}</h2>;
+      return (
+        <h2 className="text-3xl font-bold text-orange-400 text-left">
+          {value}
+        </h2>
+      );
     },
     [contentTypes.BLOCKS.UL_LIST]: (node: any) => {
       return (
