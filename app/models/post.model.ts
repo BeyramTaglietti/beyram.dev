@@ -1,3 +1,4 @@
+import contentTypes from "@contentful/rich-text-types";
 import type { Image } from "./image.model";
 
 export type PostModel = {
@@ -7,5 +8,5 @@ export type PostModel = {
   shortDescription: string;
   readingTime: number;
   date: Date;
-  postContent: any;
+  postContent: contentTypes.Document;
 };

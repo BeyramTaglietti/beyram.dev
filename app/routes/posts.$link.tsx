@@ -1,10 +1,14 @@
 import { useLoaderData } from "@remix-run/react";
 import { getContentfulData } from "~/contentful/config.server";
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import {
+  documentToReactComponents,
+  Options,
+} from "@contentful/rich-text-react-renderer";
 import contentTypes from "@contentful/rich-text-types";
 import { type LoaderFunctionArgs, type MetaFunction } from "@remix-run/node";
 import dayjs from "dayjs";
+import { ReactNode } from "react";
 import { BiSolidCalendarEvent, BiSolidTimeFive } from "react-icons/bi";
 import InfoPill from "~/components/InfoPill";
 import type { PostModel } from "~/models/post.model";
@@ -84,16 +88,13 @@ const Post = () => {
         <div className="mt-4 text-justify flex flex-col gap-6">
           <div className="flex justify-center">
             <img
-              src={`https:${(post.fields.background as any).fields.file.url}`}
+              src={`https:${post.fields.background.fields.file.url}`}
               alt={post.fields.title as string}
               className="w-full"
               style={{ viewTransitionName: "post-image" }}
             />
           </div>
-          {documentToReactComponents(
-            post.fields.postContent as any,
-            renderOptions as any
-          )}
+          {documentToReactComponents(post.fields.postContent, renderOptions)}
         </div>
       </div>
     </div>
@@ -102,9 +103,9 @@ const Post = () => {
 
 export default Post;
 
-const renderOptions = {
+const renderOptions: Options = {
   renderNode: {
-    "embedded-asset-block": (node: any) => {
+    [contentTypes.BLOCKS.EMBEDDED_ASSET]: (node) => {
       return (
         <div className="flex justify-center py-4">
           <img
@@ -118,28 +119,25 @@ const renderOptions = {
         </div>
       );
     },
-    [contentTypes.INLINES.HYPERLINK]: (
-      { data }: { data: any },
-      children: string
-    ) => (
+    [contentTypes.INLINES.HYPERLINK]: (node, children) => (
       <a
         className="font-bold text-blue-400 underline"
         target="_blank"
         rel="noreferrer"
-        href={data.uri}
+        href={node.data.uri}
       >
         {children}
       </a>
     ),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [contentTypes.BLOCKS.HEADING_2]: (node: any) => {
-      const { value } = node.content[0];
       return (
-        <h2 className="text-3xl font-bold text-orange-400 text-left">
-          {value}
+        <h2 className="text-3xl font-bold text-orange-400 text-left text-wrap">
+          {node.content[0].value}
         </h2>
       );
     },
-    [contentTypes.BLOCKS.UL_LIST]: (node: any) => {
+    [contentTypes.BLOCKS.UL_LIST]: (node) => {
       return (
         <ul className="list-disc list-inside">
           {node.content.map(({ content }: any) => (
@@ -155,13 +153,13 @@ const renderOptions = {
     },
   },
   renderMark: {
-    [contentTypes.MARKS.BOLD]: (text: string) => (
+    [contentTypes.MARKS.BOLD]: (text: ReactNode) => (
       <span className="font-bold text-orange-400">{text}</span>
     ),
-    [contentTypes.MARKS.CODE]: (text: string) => (
-      <span className="bg-primary font-mono text-sm py-3 px-4 rounded-md">
+    [contentTypes.MARKS.CODE]: (text: ReactNode) => (
+      <code className="bg-primary font-mono text-sm py-3 px-4 rounded-md">
         {text}
-      </span>
+      </code>
     ),
   },
 };

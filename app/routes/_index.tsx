@@ -12,10 +12,18 @@ export default function Index() {
         Software Engineer
       </h3>
       <div className="text-3xl xl:text-4xl flex flex-row gap-8">
-        <Link to="https://github.com/BeyramTaglietti" target="_blank">
+        <Link
+          to="https://github.com/BeyramTaglietti"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaGithub />
         </Link>
-        <Link to="https://www.linkedin.com/in/beyram-taglietti" target="_blank">
+        <Link
+          to="https://www.linkedin.com/in/beyram-taglietti"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaLinkedinIn />
         </Link>
       </div>

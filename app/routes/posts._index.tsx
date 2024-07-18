@@ -1,13 +1,13 @@
-import type { MetaFunction } from "@remix-run/node";
-import { NavLink, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/node";
+import { json, NavLink, useLoaderData } from "@remix-run/react";
 import dayjs from "dayjs";
 import { BiSolidCalendarEvent, BiSolidTimeFive } from "react-icons/bi";
 import Card from "~/components/Card";
 import InfoPill from "~/components/InfoPill";
 import { getContentfulData } from "~/contentful/config.server";
-import type { PostModel } from "~/models/post.model";
+import { PostModel } from "~/models/post.model";
 
-export const meta: MetaFunction<typeof loader> = ({ data: post }) => {
+export const meta: MetaFunction = () => {
   return [
     { title: "Blog posts" },
     {
@@ -23,9 +23,10 @@ export const loader = async () => {
     content_type: "post",
   });
 
-  return response;
+  return json(
+    response.sort((a, b) => (a.fields.date > b.fields.date ? -1 : 1))
+  );
 };
-
 const Posts = () => {
   const posts = useLoaderData<typeof loader>();
 
@@ -43,14 +44,7 @@ const Posts = () => {
               <>
                 <div className="w-full lg:w-3/5 flex flex-col justify-between gap-4">
                   <div className="flex flex-col gap-4">
-                    <h1
-                      className="text-4xl w-full font-bold"
-                      style={
-                        isTransitioning
-                          ? { viewTransitionName: "post-title" }
-                          : undefined
-                      }
-                    >
+                    <h1 className="text-4xl w-full font-bold">
                       {fields.title}
                     </h1>
                     <p>{fields.shortDescription}</p>
