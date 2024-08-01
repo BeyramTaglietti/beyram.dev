@@ -1,0 +1,61 @@
+---
+title: NextJS An Odyssey of Elation and Frustration
+date: 2023-09-08
+readingTime: 4
+shortDescription: |
+  NextJS (app router) is truly an amazing tool, but the developer experience when I used it was certainly not the best, here are my few takes about the framework's issues.
+backgroundUrl: https://images.ctfassets.net/gnk4vn8vtbl0/sAYGEJ0ce0wmoIfPQ9xVJ/2134e8c5bacf8b7b6b1e9fc0573beef1/ql92zpsre2li58mpjpsa.png
+meta:
+  - title: My First Post
+---
+
+import { getPostSEO } from "../utils/seo.utils";
+import { PostHeader } from "../components/PostHeader";
+
+export const meta = () => {
+  return getPostSEO(frontmatter);
+};
+
+<PostHeader post={frontmatter} />
+
+**Next.js**, often hailed as Vercel's marvel and React's primary weapon for pioneering new features, unfortunately falls short of being universally accommodating. My experience with Next.js was initially enchanting, rendering alternatives like create-react-app virtually obsolete. Next.js swiftly became the preferred choice, even endorsed by the [React team.](https://react.dev/learn/start-a-new-react-project)
+
+Using it felt akin to wielding an **exhaustive arsenal**; every conceivable tool was at my disposal, meticulously designed and flawlessly executed. However, it is only through prolonged engagement that one starts to discern the **subtle imperfections** concealed within this **formidable framework.**
+
+Curiously, I observed that relatively few voices were raised regarding these shortcomings, leaving me puzzled as if some veil obscured a more critical view. **"How could these issues escape unnoticed?"** I pondered. It was only after conversing with fellow developers that I grasped the truth:
+
+**Next.js wasn't tailored to suit my particular needs.**
+
+Vercel and React have been fervently introducing new features, with **Server Components** leading the charge. They perform exceptionally well, to the point where it scarcely resembles React anymore. The notion of crafting an **asynchronous component** felt almost absurd a year ago.
+
+Server Components shine most brightly in the realm of static websites, eliminating the need for JavaScript and dramatically **enhancing page load times.** Coupled with Next.js's server-side rendering, an excellent Link component with prefetching capabilities, impeccable SEO management, image optimization, Vercel's edge functions, and voilà, you've got an extraordinary React framework at your disposal.
+
+**Hey! what if I don't want to develop a static website, can I still use NextJS?**
+
+Absolutely, it's possible, but a series of **adjustments** are necessary. Disabling static site generation (**SSG**) for each and every route, including API routes, and abstaining from Server Components to evade the **anxiety-inducing** use of Client Components are prerequisites.
+
+Further, configuring the route segment settings for each route is essential to prevent Next.js from attempting static rendering when building the application. Oh yes, you cannot disable [router cache](https://www.youtube.com/watch?v=e4GFzyx-Jw4), have fun though!
+
+**As you can see, to use NextJS as a normal react application, you need to disable...NextJS.**
+
+Next.js defaults cater primarily to **SSG websites**, and to remove this behavior is a pain that I would not want to endure again.
+
+And it's not just because of SSG default options, did I mention the **router cache**? It's a caching mechanism which stores the route so that when you go back to it while navigating, NextJS serves the **cached page.** This is perfect, but if you want to mutate that route's data then you got an issue: **you cannot.**
+
+Vercel stated that the router cache behavior **CAN'T be disabled**, you want to know what's the only solution devs found and suggest? using the anchor tag
+
+```html
+<a></a>
+```
+
+and thus navigating with a full page reload...yes, it's not a joke.
+
+![NextJS cache](https://images.ctfassets.net/gnk4vn8vtbl0/39LaJzrS5goq2bPBQD0xT/ef6f8a933d8ee14857cd38fcf4c4fd2f/Screenshot_2023-09-19_alle_15.06.37.png)
+
+NextJS is of the only framework which can make caching, [**possibly the hardest thing to do in programming**](https://tanstack.com/query/latest/docs/react/overview) as stated by the Tanstack team, even harder.
+
+While extraordinary in many aspects, I don't think NextJS (**app router**) is the right choice for me, and in light of these challenges, my options are now limited.
+
+The only React Framework left is [Remix](remix.run), which I am currently using and it's amazing, it's not a new way to write react nor anything.
+
+Unlike Next.js, Remix does not introduce a novel way to write React—**it is just React.**
