@@ -11,12 +11,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.22.7",
-    "@contentful/rich-text-types": "^16.8.1",
     "@remix-run/node": "^2.10.3",
     "@remix-run/react": "^2.10.3",
     "@remix-run/serve": "^2.10.3",
-    "contentful": "^10.12.11",
     "dayjs": "^1.11.11",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
