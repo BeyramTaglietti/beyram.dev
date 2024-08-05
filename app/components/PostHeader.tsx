@@ -5,8 +5,8 @@ import InfoPill from "./InfoPill";
 
 export const PostHeader = ({ post }: { post: PostModel }) => {
   return (
-    <div className="flex flex-col mb-8">
-      <div className="flex flex-col gap-4 bg-primary rounded-xl p-4">
+    <div className="flex flex-col">
+      <div className="flex flex-col bg-primary rounded-xl p-4">
         <h1
           className="text-4xl w-full font-bold"
           style={{ viewTransitionName: "post-title" }}
