@@ -1,12 +1,22 @@
 [
   {
     "title": "Norse Venture",
-    "description": "Norse Venture is a project which crossed my mind when I needed a cool and complete way to organize a trip among my friends and found nothing that 100% satisfied my needs. It helps you by inserting the tasks you want to do on a certain trip (plus specific task infos such as location, description, available times and more), thus making sure you'll never miss anything you wanted to do. Used to be a web application, it is now a mobile application (currently only available on IOS)",
+    "description": "Norse Venture is a project which crossed my mind when I needed a cool and complete way to organize a trip among my friends and found nothing that 100% satisfied my needs. It helps you by inserting the tasks you want to do on a certain trip (plus specific task infos such as location, description, available times and more), thus making sure you'll never miss anything you wanted to do. Used to be a web application, it is now a mobile application available on both iOS and Android.",
     "backgroundPath": "norse_venture.jpeg",
     "link": {
       "web": null,
-      "ios": "https://apps.apple.com/it/app/norse-venture-trip-planner/id6478082618?l=en-GB",
+      "ios": "https://apps.apple.com/it/app/norse-venture-trip-planner/id6478082618",
       "android": "https://play.google.com/store/apps/details?id=com.beyramtaglietti.norseventure&pcampaignid=web_share"
+    }
+  },
+  {
+    "title": "Redo",
+    "description": "Redo is a very small application that I built in a week but it's the most useful thing I've ever made, it helps me keep track of repetitive tasks that I need to do every day, week or month. You just create a new Redo, set how often you should be remainded, and just like that, no task will ever be forgotten again (my cat's litter box is always clean now). The app is only available on iOS due to how stupid Google is :)",
+    "backgroundPath": "redo.jpg",
+    "link": {
+      "web": null,
+      "android": null,
+      "ios": "https://apps.apple.com/us/app/redo-repetitive-tasks/id6504712333"
     }
   }
 ]

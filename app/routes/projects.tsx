@@ -20,7 +20,7 @@ export const meta: MetaFunction<typeof loader> = () => {
 };
 
 export const loader = async () => {
-  return json(projects);
+  return json([...projects].reverse());
 };
 
 const Projects = () => {
@@ -38,7 +38,7 @@ const Projects = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-full lg:w-3/5 flex flex-col gap-4">
+            <div className="w-full lg:w-3/5 flex flex-col gap-4 justify-between">
               <div>
                 <h1 className="font-bold text-4xl">{title}</h1>
               </div>
