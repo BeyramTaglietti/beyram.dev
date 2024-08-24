@@ -6,7 +6,8 @@
     "link": {
       "web": null,
       "ios": "https://apps.apple.com/it/app/norse-venture-trip-planner/id6478082618",
-      "android": "https://play.google.com/store/apps/details?id=com.beyramtaglietti.norseventure&pcampaignid=web_share"
+      "android": "https://play.google.com/store/apps/details?id=com.beyramtaglietti.norseventure&pcampaignid=web_share",
+      "github": null
     }
   },
   {
@@ -16,7 +17,8 @@
     "link": {
       "web": null,
       "android": null,
-      "ios": "https://apps.apple.com/us/app/redo-repetitive-tasks/id6504712333"
+      "ios": "https://apps.apple.com/us/app/redo-repetitive-tasks/id6504712333",
+      "github": "https://github.com/BeyramTaglietti/redo"
     }
   }
 ]

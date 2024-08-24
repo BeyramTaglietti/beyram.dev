@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import Card from "~/components/Card";
 import {
   AppStoreButton,
+  GithubRepoButton,
   PlayStoreButton,
   WebsiteButton,
 } from "~/components/StoreButtons";
@@ -47,6 +48,7 @@ const Projects = () => {
                 {link.ios && <AppStoreButton url={link.ios} />}
                 {link.android && <PlayStoreButton url={link.android} />}
                 {link.web && <WebsiteButton url={link.web} />}
+                {link.github && <GithubRepoButton url={link.github} />}
               </div>
             </div>
           </div>

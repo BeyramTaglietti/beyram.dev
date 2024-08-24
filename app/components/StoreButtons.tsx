@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { FaSafari } from "react-icons/fa";
+import { FaGithub, FaSafari } from "react-icons/fa";
 import { IoLogoApple, IoLogoGooglePlaystore } from "react-icons/io5";
 
 type StoreButtonProps = {
@@ -44,6 +44,20 @@ export const WebsiteButton = ({ url }: StoreButtonProps) => {
     >
       <FaSafari className="text-3xl" />
       <span>Visit Website</span>
+    </Link>
+  );
+};
+
+export const GithubRepoButton = ({ url }: StoreButtonProps) => {
+  return (
+    <Link
+      to={url}
+      target="_blank"
+      rel="noreferrer"
+      className="bg-secondary text-white px-4 py-2 rounded-md flex flex-row items-center gap-4 w-full"
+    >
+      <FaGithub className="text-3xl" />
+      <span>View source code</span>
     </Link>
   );
 };
