@@ -8,18 +8,13 @@ const AboutMe = () => {
         in the frontend world
       </p>
       <p className="mb-4">
-        Other than coding I also enjoy traveling 🌍 and playing video games 🎮
-        (mainly first person shooters)
+        Other than coding I also enjoy traveling 🌍, which I built an app for,
+        and not much else really... maybe memes? 🤷🏻‍♂️
       </p>
-      <p className="mb-4">
-        I really love web design and designing a beatiful website is always a
-        priority... but I value performance, development speed and security a
-        lot more 👻 (can&apos;t you tell from this website? I did my best ok??
-        😤)
-      </p>
+      <p className="mb-4"></p>
 
       <img
-        src="https://media1.tenor.com/m/W7O9HyghmRAAAAAC/shrek-angry.gif"
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJ1NHIycHg0dnpyMjduZjM1Z3BuZjIyb3F4eGN3OHRjYnlnanppNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3osxYcwi3hCVbzNYqY/giphy.webp"
         alt="gif representation of my current mood"
         className="rounded-xl"
       />

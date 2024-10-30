@@ -31,5 +31,16 @@
       "ios": null,
       "github": "https://github.com/BeyramTaglietti/hozon?tab=readme-ov-file"
     }
+  },
+  {
+    "title": "Kojin",
+    "description": "Kojin is file tree watcher built using Golang. With it you can watch a folder tree for changes and execute commands when a change is detected. I built it because I was trying the Gleam programming language and I saw that it lacked a live reload feature, very useful when building something with a new language that you never used before, so I built Kojin to help me with that.",
+    "backgroundPath": "kojin.jpg",
+    "link": {
+      "web": null,
+      "android": null,
+      "ios": null,
+      "github": "https://github.com/BeyramTaglietti/kojin"
+    }
   }
 ]
