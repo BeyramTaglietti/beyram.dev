@@ -36,14 +36,16 @@ const Projects = () => {
               <img
                 src={"assets/images/" + backgroundPath}
                 alt={title}
-                className="w-full h-full object-cover"
+                className="w-full h-full aspect-video object-cover"
               />
             </div>
             <div className="w-full lg:w-3/5 flex flex-col gap-4 justify-between">
-              <div>
-                <h1 className="font-bold text-4xl">{title}</h1>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <h1 className="font-bold text-4xl">{title}</h1>
+                </div>
+                <div>{description}</div>
               </div>
-              <div>{description}</div>
               <div className="flex flex-col lg:flex-row gap-4">
                 {link.ios && <AppStoreButton url={link.ios} />}
                 {link.android && <PlayStoreButton url={link.android} />}

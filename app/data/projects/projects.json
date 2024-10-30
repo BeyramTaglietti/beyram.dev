@@ -20,5 +20,16 @@
       "ios": "https://apps.apple.com/us/app/redo-repetitive-tasks/id6504712333",
       "github": "https://github.com/BeyramTaglietti/redo"
     }
+  },
+  {
+    "title": "Hozon",
+    "description": "Hozon is a command-line interface (CLI) tool built with Golang, designed to simplify the process of backing up PostgreSQL databases and securely sending the backup file via Telegram. It took me less than a week to code and I use it to backup my applications' databases without setting up too many things - Just a dockerfile and a few environment variables.",
+    "backgroundPath": "hozon.JPEG",
+    "link": {
+      "web": null,
+      "android": null,
+      "ios": null,
+      "github": "https://github.com/BeyramTaglietti/hozon?tab=readme-ov-file"
+    }
   }
 ]
