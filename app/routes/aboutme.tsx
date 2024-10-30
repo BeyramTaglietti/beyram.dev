@@ -11,7 +11,6 @@ const AboutMe = () => {
         Other than coding I also enjoy traveling 🌍, which I built an app for,
         and not much else really... maybe memes? 🤷🏻‍♂️
       </p>
-      <p className="mb-4"></p>
 
       <img
         src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWJ1NHIycHg0dnpyMjduZjM1Z3BuZjIyb3F4eGN3OHRjYnlnanppNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3osxYcwi3hCVbzNYqY/giphy.webp"
