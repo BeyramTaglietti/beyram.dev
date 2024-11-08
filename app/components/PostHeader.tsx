@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
+import { format } from "date-fns";
 import { BiSolidCalendarEvent, BiSolidTimeFive } from "react-icons/bi";
 import { PostModel } from "~/models/post.model";
-import InfoPill from "./InfoPill";
+import { InfoPill } from "./InfoPill";
 
 export const PostHeader = ({ post }: { post: PostModel }) => {
   return (
@@ -23,7 +23,7 @@ export const PostHeader = ({ post }: { post: PostModel }) => {
           />
           <InfoPill
             icon={<BiSolidCalendarEvent />}
-            text={dayjs(post.date).format("MMMM YYYY")}
+            text={format(post.date, "MMMM YYYY")}
           />
         </div>
       </div>

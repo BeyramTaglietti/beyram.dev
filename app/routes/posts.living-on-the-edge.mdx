@@ -9,8 +9,8 @@ meta:
   - title: My First Post
 ---
 
-import { getPostSEO } from "../utils/seo.utils";
-import { PostHeader } from "../components/PostHeader";
+import { PostHeader } from "../components";
+import { getPostSEO } from "../utils";
 
 export const meta = () => {
   return getPostSEO(frontmatter);

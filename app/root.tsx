@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/node";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -6,8 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import Sidebar from "~/components/Sidebar";
-import "./tailwind.css";
+import stylesheet from "~/tailwind.css?url";
+import { Sidebar } from "./components";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export const meta: MetaFunction = () => {
   return [
@@ -15,7 +19,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "I'm Beyram Taglietti, a Software Engineer from Italy specialized in Frontend Development",
+        "Software Engineer from Italy specialized in Frontend Development",
     },
   ];
 };
@@ -41,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <div className="flex w-full flex-col-reverse md:flex-row">
-      <div className="h-[80px] md:h-full w-full md:w-[250px] 2xl:w-[350px] fixed bottom-0 left-0 md:top-0 z-10">
+      <div className="h-[80px] md:h-full w-full md:w-[250px] fixed bottom-0 left-0 md:top-0 z-10">
         <Sidebar />
       </div>
 

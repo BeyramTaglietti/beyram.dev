@@ -6,7 +6,7 @@ type StoreButtonProps = {
   url: string;
 };
 
-export const AppStoreButton = ({ url }: StoreButtonProps) => {
+const AppStoreButton = ({ url }: StoreButtonProps) => {
   return (
     <Link
       to={url}
@@ -20,7 +20,7 @@ export const AppStoreButton = ({ url }: StoreButtonProps) => {
   );
 };
 
-export const PlayStoreButton = ({ url }: StoreButtonProps) => {
+const PlayStoreButton = ({ url }: StoreButtonProps) => {
   return (
     <Link
       to={url}
@@ -34,7 +34,7 @@ export const PlayStoreButton = ({ url }: StoreButtonProps) => {
   );
 };
 
-export const WebsiteButton = ({ url }: StoreButtonProps) => {
+const WebsiteButton = ({ url }: StoreButtonProps) => {
   return (
     <Link
       to={url}
@@ -48,7 +48,7 @@ export const WebsiteButton = ({ url }: StoreButtonProps) => {
   );
 };
 
-export const GithubRepoButton = ({ url }: StoreButtonProps) => {
+const GithubRepoButton = ({ url }: StoreButtonProps) => {
   return (
     <Link
       to={url}
@@ -61,3 +61,12 @@ export const GithubRepoButton = ({ url }: StoreButtonProps) => {
     </Link>
   );
 };
+
+const StoreButtons = {
+  AppStoreButton,
+  PlayStoreButton,
+  WebsiteButton,
+  GithubRepoButton
+}
+
+export { StoreButtons };

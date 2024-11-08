@@ -1,10 +1,9 @@
-import { MetaFunction } from "@remix-run/node";
-import { json, NavLink, useLoaderData } from "@remix-run/react";
-import dayjs from "dayjs";
+import { json, MetaFunction } from "@remix-run/node";
+import { NavLink, useLoaderData } from "@remix-run/react";
+import { format } from "date-fns";
 import { BiSolidCalendarEvent, BiSolidTimeFive } from "react-icons/bi";
-import Card from "~/components/Card";
-import InfoPill from "~/components/InfoPill";
-import { PostModel } from "~/models/post.model";
+import { Card, InfoPill } from "~/components";
+import { PostModel } from "~/models";
 
 export const meta: MetaFunction = () => {
   return [
@@ -81,7 +80,7 @@ const Posts = () => {
                       />
                       <InfoPill
                         icon={<BiSolidCalendarEvent />}
-                        text={dayjs(date).format("MMMM YYYY")}
+                        text={format(date, "MMMM YYYY")}
                       />
                     </div>
                   </div>

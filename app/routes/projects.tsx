@@ -1,12 +1,9 @@
-import { json, type MetaFunction } from "@remix-run/node";
+import { json, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import Card from "~/components/Card";
 import {
-  AppStoreButton,
-  GithubRepoButton,
-  PlayStoreButton,
-  WebsiteButton,
-} from "~/components/StoreButtons";
+  Card,
+  StoreButtons,
+} from "~/components";
 import projects from "~/data/projects/projects.json";
 
 export const meta: MetaFunction<typeof loader> = () => {
@@ -29,6 +26,9 @@ const Projects = () => {
 
   return (
     <div className="flex flex-col gap-4 items-center">
+      <h1 className="text-4xl block md:hidden w-full font-bold py-3">
+        Personal projects
+      </h1>
       {projects.map(({ title, description, link, backgroundPath }, index) => (
         <Card key={index}>
           <div className="flex flex-col lg:flex-row gap-4 flex-1">
@@ -42,15 +42,15 @@ const Projects = () => {
             <div className="w-full lg:w-3/5 flex flex-col gap-4 justify-between">
               <div className="flex flex-col gap-2">
                 <div>
-                  <h1 className="font-bold text-4xl">{title}</h1>
+                  <h2 className="font-bold text-4xl">{title}</h2>
                 </div>
                 <div>{description}</div>
               </div>
               <div className="flex flex-col lg:flex-row gap-4">
-                {link.ios && <AppStoreButton url={link.ios} />}
-                {link.android && <PlayStoreButton url={link.android} />}
-                {link.web && <WebsiteButton url={link.web} />}
-                {link.github && <GithubRepoButton url={link.github} />}
+                {link.ios && <StoreButtons.AppStoreButton url={link.ios} />}
+                {link.android && <StoreButtons.PlayStoreButton url={link.android} />}
+                {link.web && <StoreButtons.WebsiteButton url={link.web} />}
+                {link.github && <StoreButtons.GithubRepoButton url={link.github} />}
               </div>
             </div>
           </div>

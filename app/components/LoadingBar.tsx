@@ -1,7 +1,7 @@
 import { useNavigation } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
-const LoadingBar = () => {
+export const LoadingBar = () => {
   const [progress, setProgress] = useState<number>(0);
   const [visible, setVisible] = useState(false);
 
@@ -66,5 +66,3 @@ const LoadingBar = () => {
     </div>
   );
 };
-
-export default LoadingBar;
