@@ -1,15 +1,15 @@
-FROM oven/bun:latest
+FROM node:20-slim AS base
 
 WORKDIR /
 
 
-COPY bun.lockb ./
+COPY pnpm-lock.yaml . 
 COPY package.json . 
 
-RUN bun install
+RUN npx pnpm i
 
 COPY . .
 
-RUN bun run build
+RUN npx pnpm build
 
-CMD ["bun", "start"]
+CMD ["npm", "start"]
