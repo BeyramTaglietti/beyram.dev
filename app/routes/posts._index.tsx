@@ -57,7 +57,6 @@ const Posts = () => {
           <Card key={slug}>
             <NavLink
               prefetch="viewport"
-              unstable_viewTransition
               to={slug}
               className="flex flex-col lg:flex-row gap-4 flex-1"
             >

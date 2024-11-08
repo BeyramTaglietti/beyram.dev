@@ -24,7 +24,7 @@ const Sidebar = () => {
                 isActive && "bg-primary"
               }`
             }
-            unstable_viewTransition
+            viewTransition
           >
             {route.icon}
             <span className="hidden md:block">{route.label}</span>
