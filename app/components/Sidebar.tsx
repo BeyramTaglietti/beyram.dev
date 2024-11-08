@@ -2,14 +2,12 @@ import { NavLink } from "@remix-run/react";
 
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-import { IoIosText } from "react-icons/io";
-import { MdDesktopMac } from "react-icons/md";
+import { IoCodeSlash } from "react-icons/io5";
 
 const routes = [
   { label: "Home", link: "/", icon: <AiFillHome /> },
   { label: "About Me", link: "/aboutme", icon: <FaUser /> },
-  { label: "Personal Projects", link: "/projects", icon: <MdDesktopMac /> },
-  { label: "Posts", link: "/posts", icon: <IoIosText /> },
+  { label: "Personal Projects", link: "/projects", icon: <IoCodeSlash /> },
 ];
 
 const Sidebar = () => {
