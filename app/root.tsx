@@ -30,6 +30,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="e48a3964-d5fd-4137-99d2-8daf8a61290e"
+        ></script>
         <Meta />
         <Links />
       </head>
