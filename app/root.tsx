@@ -1,28 +1,14 @@
-import { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
+  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import stylesheet from "~/tailwind.css?url";
-import { Sidebar } from "./components";
+} from "react-router";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Beyram Taglietti" },
-    {
-      name: "description",
-      content:
-        "Software Engineer from Italy specialized in Frontend Development",
-    },
-  ];
-};
+import type { Route } from "./+types/root";
+import "./app.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -30,13 +16,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="e48a3964-d5fd-4137-99d2-8daf8a61290e"
-        ></script>
         <Meta />
         <Links />
+
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="e48a3964-d5fd-4137-99d2-8daf8a61290e"></script>
       </head>
       <body>
         {children}
@@ -48,19 +31,34 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <div className="flex w-full flex-col-reverse md:flex-row">
-      <div className="h-[80px] md:h-full w-full md:w-[250px] fixed bottom-0 left-0 md:top-0 z-10">
-        <Sidebar />
-      </div>
+  return <Outlet />;
+}
 
-      <div className="mb-[80px] md:mb-0 pl-0 md:pl-[250px] 2xl:pl-[350px] w-full h-full">
-        <main className="py-5 px-2 lg:px-14 flex justify-center min-h-[calc(100dvh-80px)] w-full">
-          <div className="max-w-[1000px]">
-            <Outlet />
-          </div>
-        </main>
-      </div>
-    </div>
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  let message = "Oops!";
+  let details = "An unexpected error occurred.";
+  let stack: string | undefined;
+
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? "404" : "Error";
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
+  }
+
+  return (
+    <main className="pt-16 p-4 container mx-auto">
+      <h1>{message}</h1>
+      <p>{details}</p>
+      {stack && (
+        <pre className="w-full p-4 overflow-x-auto">
+          <code>{stack}</code>
+        </pre>
+      )}
+    </main>
   );
 }

@@ -1,15 +1,17 @@
-FROM node:20-slim AS base
+FROM node:23-alpine
 
-WORKDIR /
+WORKDIR /app
 
+COPY package.json pnpm-lock.yaml ./
 
-COPY pnpm-lock.yaml . 
-COPY package.json . 
+RUN npm install -g pnpm
 
-RUN npx pnpm i
+RUN pnpm install
 
 COPY . .
 
-RUN npx pnpm build
+RUN pnpm build
 
-CMD ["npm", "start"]
+EXPOSE 3000
+
+CMD ["pnpm", "start"]

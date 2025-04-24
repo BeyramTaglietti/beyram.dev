@@ -1,9 +1,4 @@
+.react-router
+build
 node_modules
-.git
-.gitignore
 README.md
-LICENSE
-.vscode
-.env
-.editorconfig
-.idea
