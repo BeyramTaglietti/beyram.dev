@@ -19,7 +19,7 @@ const getVisitors = async (): Promise<
 };
 
 const addVisitor = async (name: string): Promise<Error | null> => {
-  const res = await fetch("https://testbe.beyram.dev/visitors", {
+  const res = await fetch(import.meta.env.VITE_API_URL + "/visitors", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
