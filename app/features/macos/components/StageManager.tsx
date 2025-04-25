@@ -80,8 +80,9 @@ export const StageManager = () => {
       >
         {availableApps
           .filter(({ app }) => appsOpen.includes(app))
-          .map(({ app, background, AppComponent }) => (
+          .map(({ app, background, AppComponent }, idx) => (
             <StageApp
+              key={idx}
               {...{
                 app,
                 activeApp,

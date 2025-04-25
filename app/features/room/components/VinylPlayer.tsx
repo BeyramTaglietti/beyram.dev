@@ -2,24 +2,21 @@ import { PositionalAudio } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import {
   useCallback,
-  useContext,
   useEffect,
   useImperativeHandle,
   useRef,
   useState,
   type ComponentRef,
-  type RefObject,
+  type RefObject
 } from "react";
 import type { Object3D } from "three";
 import { UseAnalytics } from "~/hooks";
-import { RoomContext } from "../context";
 
 type VinylRef = {
   play: () => void;
 };
 
 export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
-  const { sceneInitialized } = useContext(RoomContext);
   const { trackEvent } = UseAnalytics();
 
   const vinylDiscRef = useRef<Object3D | null>(null);
@@ -65,15 +62,13 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
 
   return (
     <>
-      {vinylDiscRef.current && sceneInitialized && (
         <PositionalAudio
           ref={audioRef}
           url="/assets/audio/school_globes_vinyl.wav"
           distance={2}
           loop
-          position={vinylDiscRef.current.position}
+          position={vinylDiscRef.current?.position}
         />
-      )}
     </>
   );
 };
