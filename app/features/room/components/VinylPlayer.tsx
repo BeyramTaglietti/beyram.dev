@@ -42,17 +42,6 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
   const playMusic = useCallback(() => {
     trackEvent("Playing music");
 
-    if (typeof window !== "undefined") {
-      const audioContext = new (window.AudioContext ||
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).webkitAudioContext)();
-      if (audioContext.state === "suspended") {
-        audioContext.resume().then(() => {
-          console.log("AudioContext resumed successfully");
-        });
-      }
-    }
-
     if (audioRef.current) {
       if (isRotating) {
         audioRef.current.pause();
