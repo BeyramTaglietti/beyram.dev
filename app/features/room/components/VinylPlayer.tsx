@@ -64,7 +64,7 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
     <>
         <PositionalAudio
           ref={audioRef}
-          url="/assets/audio/school_globes_vinyl.wav"
+          url="/assets/audio/school_globes_vinyl.mp3"
           distance={2}
           loop
           position={vinylDiscRef.current?.position}

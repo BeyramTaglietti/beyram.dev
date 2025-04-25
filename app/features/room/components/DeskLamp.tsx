@@ -74,7 +74,7 @@ export const DeskLamp = ({ ref }: { ref?: RefObject<DeskLampRef | null> }) => {
       {lampLightRef.current && (
         <PositionalAudio
           ref={audioRef}
-          url="/assets/audio/light_switch.wav"
+          url="/assets/audio/light_switch.mp3"
           distance={0.3}
           loop={false}
           position={lampLightRef.current?.position}
