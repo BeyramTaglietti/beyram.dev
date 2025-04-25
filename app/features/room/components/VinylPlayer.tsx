@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
   type ComponentRef,
-  type RefObject
+  type RefObject,
 } from "react";
 import type { Object3D } from "three";
 import { UseAnalytics } from "~/hooks";
@@ -41,6 +41,18 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
 
   const playMusic = useCallback(() => {
     trackEvent("Playing music");
+
+    if (typeof window !== "undefined") {
+      const audioContext = new (window.AudioContext ||
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).webkitAudioContext)();
+      if (audioContext.state === "suspended") {
+        audioContext.resume().then(() => {
+          console.log("AudioContext resumed successfully");
+        });
+      }
+    }
+
     if (audioRef.current) {
       if (isRotating) {
         audioRef.current.pause();
@@ -62,13 +74,13 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
 
   return (
     <>
-        <PositionalAudio
-          ref={audioRef}
-          url="/assets/audio/school_globes_vinyl.mp3"
-          distance={2}
-          loop
-          position={vinylDiscRef.current?.position}
-        />
+      <PositionalAudio
+        ref={audioRef}
+        url="/assets/audio/school_globes_vinyl.mp3"
+        distance={2}
+        loop
+        position={vinylDiscRef.current?.position}
+      />
     </>
   );
 };
