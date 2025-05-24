@@ -1,5 +1,6 @@
 export * from "./DeskLamp";
 export * from './Flags';
+export * from './Gameboy';
 export * from "./Monitor";
 export * from "./Room";
 export * from './SceneLoading';

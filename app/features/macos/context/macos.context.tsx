@@ -1,5 +1,5 @@
 import { createContext, useCallback, useMemo, useState } from "react";
-import { UseAnalytics } from "~/hooks";
+import { useAnalytics } from "~/hooks";
 import { IWasHere, NorseVenture, Redo } from "../components";
 import { MacosAppsEnum } from "../enums";
 import type { MacosApp } from "../types";
@@ -25,7 +25,7 @@ export const MacosContext = createContext<MacosContextType>({
 });
 
 export const MacosProvider = ({ children }: { children: React.ReactNode }) => {
-  const { trackEvent } = UseAnalytics();
+  const { trackEvent } = useAnalytics();
 
   const [activeApp, setActiveApp] = useState<MacosAppsEnum | null>(null);
   const [appsOpen, setAppsOpen] = useState<Array<MacosAppsEnum>>([]);

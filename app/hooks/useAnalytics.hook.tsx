@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback } from "react";
 
-export const UseAnalytics = () => {
+export const useAnalytics = () => {
   const trackEvent = useCallback(
     (eventName: string, payload?: Record<string, unknown>) => {
-      (window as any).umami.track(eventName, payload);
+      if (process.env.NODE_ENV !== "development") {
+        (window as any).umami.track(eventName, payload);
+      }
     },
     []
   );

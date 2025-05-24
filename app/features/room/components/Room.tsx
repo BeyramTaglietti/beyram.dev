@@ -15,12 +15,13 @@ import { RoomContext } from "../context";
 import { InteractiveFlagsEnum, InteractiveModelsEnum } from "../enums";
 import { DeskLamp } from "./DeskLamp";
 import { Flags } from "./Flags";
+import { Gameboy } from "./Gameboy";
 import { Monitor } from "./Monitor";
 import { VinylPlayer } from "./VinylPlayer";
 
 export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
   const { scene } = useGLTF(
-    "/assets/models/room250418.glb",
+    "/assets/models/room250420.glb",
     undefined,
     undefined,
     () => {
@@ -39,11 +40,13 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
   const vinylPlayerRef = useRef<ComponentRef<typeof VinylPlayer>>(null);
   const deskLampRef = useRef<ComponentRef<typeof DeskLamp>>(null);
   const monitorRef = useRef<ComponentRef<typeof Monitor>>(null);
+  const gameboyRef = useRef<ComponentRef<typeof Gameboy>>(null);
 
   const [lookingAt, setLookingAt] = useState<InteractiveModelsEnum | null>(
     null
   );
   const [onMonitor, setOnMonitor] = useState(false);
+  const [onGameboy, setOnGameboy] = useState(false);
 
   const [, api] = useSpring(() => ({
     position: [camera.position.x, camera.position.y, camera.position.z],
@@ -93,6 +96,13 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
       case InteractiveModelsEnum.lamp_light_base:
         deskLampRef.current?.toggleLight();
         break;
+      case InteractiveModelsEnum.gameboy_console:
+      case InteractiveModelsEnum.gameboy_screen:
+        disableOrbits();
+        setStartingCameraPosition(camera.position.toArray());
+        gameboyRef.current?.watch();
+        setOnGameboy(true);
+        break;
       case InteractiveModelsEnum.monitor_screen:
         if (screenSize < 900) return;
         disableOrbits();
@@ -101,38 +111,56 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
         setOnMonitor(true);
         break;
       default:
-        if (onMonitor) {
-          const worldPosition = new Vector3();
-          const monitor = scene.getObjectByName(
-            InteractiveModelsEnum.monitor_screen
-          );
-          monitor?.getWorldPosition(worldPosition);
+        {
+          const resetCameraPosition = (
+            objName: string,
+            stopWatching: () => void
+          ) => {
+            const worldPosition = new Vector3();
+            const obj = scene.getObjectByName(objName);
+            obj?.getWorldPosition(worldPosition);
 
-          api.set({
-            position: [camera.position.x, camera.position.y, camera.position.z],
-          });
+            api.set({
+              position: [
+                camera.position.x,
+                camera.position.y,
+                camera.position.z,
+              ],
+            });
 
-          setLookingAt(null);
-          monitorRef.current?.stopWatching();
-          setOnMonitor(false);
-          setOrbitsTarget(worldPosition);
-          enableOrbits();
+            setLookingAt(null);
+            stopWatching();
+            setOrbitsTarget(worldPosition);
+            enableOrbits();
 
-          api.start({
-            position: [
-              startingCameraPosition[0],
-              startingCameraPosition[1],
-              startingCameraPosition[2],
-            ],
-            onChange: ({ value }) => {
-              camera.position.set(
-                value.position[0],
-                value.position[1],
-                value.position[2]
-              );
-              camera.lookAt(worldPosition);
-            },
-          });
+            api.start({
+              position: [
+                startingCameraPosition[0],
+                startingCameraPosition[1],
+                startingCameraPosition[2],
+              ],
+              onChange: ({ value }) => {
+                camera.position.set(
+                  value.position[0],
+                  value.position[1],
+                  value.position[2]
+                );
+                camera.lookAt(worldPosition);
+              },
+            });
+          };
+
+          if (onMonitor) {
+            resetCameraPosition(InteractiveModelsEnum.monitor_screen, () => {
+              monitorRef.current?.stopWatching();
+              setOnMonitor(false);
+            });
+          } else if (onGameboy) {
+            resetCameraPosition(InteractiveModelsEnum.gameboy_screen, () => {
+              gameboyRef.current?.stopWatching();
+              setOnGameboy(false);
+            });
+          }
         }
         break;
     }
@@ -143,6 +171,7 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
     disableOrbits,
     enableOrbits,
     lookingAt,
+    onGameboy,
     onMonitor,
     scene,
     screenSize,
@@ -174,6 +203,7 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
       <DeskLamp ref={deskLampRef} />
       <Monitor ref={monitorRef} />
       <Flags lookingAt={lookingAt as InteractiveFlagsEnum | null} />
+      <Gameboy ref={gameboyRef} />
     </>
   );
 };

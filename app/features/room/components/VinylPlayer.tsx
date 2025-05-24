@@ -7,17 +7,17 @@ import {
   useRef,
   useState,
   type ComponentRef,
-  type RefObject,
+  type RefObject
 } from "react";
 import type { Object3D } from "three";
-import { UseAnalytics } from "~/hooks";
+import { useAnalytics } from "~/hooks";
 
 type VinylRef = {
   play: () => void;
 };
 
 export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
-  const { trackEvent } = UseAnalytics();
+  const { trackEvent } = useAnalytics();
 
   const vinylDiscRef = useRef<Object3D | null>(null);
   const audioRef = useRef<ComponentRef<typeof PositionalAudio> | null>(null);

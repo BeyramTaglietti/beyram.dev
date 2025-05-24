@@ -27,7 +27,7 @@ export const RoomPage = () => {
           position: [3, 3.3, 6.5],
         }}
         onCreated={({ gl }) => {
-          gl.setClearColor("#858585");
+          gl.setClearColor("#141414");
         }}
       >
         <CustomOrbits />
