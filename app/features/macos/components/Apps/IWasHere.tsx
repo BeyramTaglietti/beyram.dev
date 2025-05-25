@@ -21,7 +21,7 @@ type VisitorsData = {
   count: number;
 };
 
-type IWasHereTabs = "people" | "techtotry";
+type IWasHereTabs = "people" | "techtotry" | "fastfoodsranking";
 export const IWasHere = () => {
   const [currentTab, setCurrentTab] = useState<IWasHereTabs>("people");
 
@@ -66,6 +66,11 @@ export const IWasHere = () => {
               label="Tech to try"
               onClick={() => setCurrentTab("techtotry")}
             />
+            <NotesTab
+              activeTab={currentTab === "fastfoodsranking"}
+              label="Fast food ranking"
+              onClick={() => setCurrentTab("fastfoodsranking")}
+            />
           </ul>
         </div>
         <div className="h-full w-3/4 pl-4 overflow-hidden">
@@ -96,6 +101,28 @@ export const IWasHere = () => {
                 <li>Sqlc</li>
                 <li>Redis</li>
                 <li>Elixir + Phoenix</li>
+              </ul>
+            </div>
+          )}
+          {currentTab === "fastfoodsranking" && (
+            <div className="flex flex-col">
+              <h2 className="text-3xl capitalize">Fast foods ranking</h2>
+              <p className="text-sm text-white/70 py-2 w-full">
+                As a big fan of fast food, this is the only ranking I accept!
+              </p>
+              <ul className="list-disc pl-6 w-[90%]">
+                <li>In N Out: 8 (tastes boringly normal but can't argue it's fresh)</li>
+                <li>Raising Canes: 7 1/2 (Too much hype)</li>
+                <li>Shake Shack: 9 1/2 (Undiscussed GOAT, can't even joke about this one)</li>
+                <li>Krispy Kreme 9 1/2 (I'm lucky we don't have that one in Italy, I'd eat that cinnamon roll each and every day)</li>
+                <li>Pizza Hut: 6 1/2</li>
+                <li>Chick Fil A: 8</li>
+                <li>Dunkin Donuts: 6 1/2 (Not even light years close to Krispy Kreme)</li>
+                <li>Chipotle: 7</li>
+                <li>Wendy's 7 1/2</li>
+                <li>Popeyes: 8 1/2</li>
+                <li>Panda Express: 5</li>
+                <li>Subway: 8 (Always good to have a subway here n there)</li>
               </ul>
             </div>
           )}
