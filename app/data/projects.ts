@@ -31,4 +31,19 @@ export const projects: Array<Project> = [
       },
     ],
   },
+  {
+    title: "My 3D Room",
+    description: "3D room with interactive objects",
+    imageUrl: "assets/projects/room/room.png",
+    links: [
+      {
+        url: "https://beyram.dev/room",
+        type: "Website",
+      },
+      {
+        url: "https://github.com/BeyramTaglietti/beyram.dev",
+        type: "Github",
+      },
+    ],
+  },
 ];

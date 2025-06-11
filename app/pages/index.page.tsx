@@ -1,10 +1,8 @@
 import { Fragment, type ReactElement } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaAppStore } from "react-icons/fa";
+import { FaAppStore, FaGlobeAmericas } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { Link } from "react-router";
-import { Button } from "~/components/ui";
 import { projects } from "~/data/projects";
 import type { LinkType, Project } from "~/models";
 
@@ -13,7 +11,7 @@ export const IndexPage = () => {
     <>
       <div className="w-dvw h-dvh flex flex-col px-4 md:px-32 pb-32 overflow-y-auto scrollbar-hidden">
         <div className="flex flex-col">
-          <h1 className="text-primary capitalize font-semibold text-5xl md:text-6xl mt-[calc(50dvh-var(--text-5xl))] md:mt-[calc(50dvh-var(--text-6xl))]">
+          <h1 className="py-2 capitalize font-semibold text-5xl md:text-6xl mt-[calc(50dvh-var(--text-5xl))] md:mt-[calc(50dvh-var(--text-6xl))] bg-radial from-orange-300 to-primary-gradient bg-clip-text text-transparent">
             beyram taglietti
           </h1>
           <h2 className="text-xl md:text-3xl capitalize font-semibold">
@@ -21,11 +19,6 @@ export const IndexPage = () => {
           </h2>
 
           <div className="flex flex-row gap-4 md:gap-6 mt-4">
-            <Link to="/room" className="w-30 md:w-40 md:h-12">
-              <Button className="w-full h-full text-sm md:text-lg hover:bg-white hover:text-primary border-2 border-primary">
-                Visit my room
-              </Button>
-            </Link>
             <div className="flex flex-row gap-4 md:gap-6 items-center">
               <a href="https://github.com/BeyramTaglietti" target="_blank">
                 <BsGithub className="cursor-pointer text-primary hover:rotate-16 transition-normal duration-300 size-6 md:size-8" />
@@ -67,6 +60,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
       case "PlayStore":
         Icon = IoLogoGooglePlaystore;
         break;
+      case "Website":
+        Icon = FaGlobeAmericas;
+        break;
     }
 
     return <Icon className="size-4" />;
@@ -90,13 +86,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </span>
             <div className="flex flex-row gap-2 mt-2">
               {project.links.map(({ url, type }) => (
-                <Link
+                <a
                   key={url}
-                  to={url}
+                  href={url}
                   className="text-muted-foreground hover:text-black transition-colors"
+                  target="_blank"
                 >
                   {renderIcon(type)}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
