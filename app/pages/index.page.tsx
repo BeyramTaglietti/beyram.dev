@@ -1,9 +1,19 @@
+import { format } from "date-fns";
 import { Fragment, type ReactElement } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaAppStore, FaGlobeAmericas } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { projects } from "~/data/projects";
+import {
+  Stepper,
+  StepperDescription,
+  StepperIndicator,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "~/components/ui";
+import { experience, projects } from "~/data";
 import type { LinkType, Project } from "~/models";
 
 export const IndexPage = () => {
@@ -33,16 +43,57 @@ export const IndexPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mt-[25dvh]">
-          <h3 className="text-3xl md:text-4xl font-semibold capitalize mb-2">
-            my work
-          </h3>
-          <div className="flex flex-col gap-8 w-full">
-            {[...projects].reverse().map((project, i) => (
-              <Fragment key={i}>
-                <ProjectCard project={project} />
-              </Fragment>
-            ))}
+        <div className="flex flex-col gap-40 mt-[25dvh]">
+          <div>
+            <h3 className="text-3xl md:text-4xl font-semibold capitalize mb-2">
+              my work
+            </h3>
+            <div className="flex flex-col gap-8 w-full">
+              {[...projects].reverse().map((project, i) => (
+                <Fragment key={i}>
+                  <ProjectCard project={project} />
+                </Fragment>
+              ))}
+            </div>
+          </div>
+          <div className="px-3">
+            <h3 className="text-3xl md:text-4xl font-semibold capitalize mb-6">
+              My experience
+            </h3>
+            <Stepper defaultValue={3} orientation="vertical">
+              {experience.map((xp, idx) => (
+                <StepperItem
+                  key={xp.company}
+                  step={idx + 1}
+                  className="relative items-start not-last:flex-1"
+                >
+                  <StepperTrigger
+                    onClick={() => {}}
+                    className="items-start rounded pb-12 last:pb-0"
+                  >
+                    <StepperIndicator asChild></StepperIndicator>
+                    <div className="space-y-0.5 px-2 text-left">
+                      <StepperTitle className="text-xl -mt-0.5">
+                        {xp.company}
+                      </StepperTitle>
+                      <StepperDescription className="flex flex-col gap-1">
+                        <span className="font-semibold">{xp.position}</span>
+                        <span>
+                          {`${format(new Date(xp.startDate), "MMMM yyyy")} - ${
+                            xp.endDate
+                              ? format(new Date(xp.endDate), "MMMM yyyy")
+                              : "Present"
+                          }`}
+                        </span>
+                      </StepperDescription>
+                    </div>
+                  </StepperTrigger>
+                  {idx < experience.length - 1 && (
+                    <StepperSeparator className="absolute inset-y-0 top-[calc(1.5rem+0.125rem)] left-3 -order-1 m-0 -translate-x-1/2 group-data-[orientation=horizontal]/stepper:w-[calc(100%-1.5rem-0.25rem)] group-data-[orientation=horizontal]/stepper:flex-none group-data-[orientation=vertical]/stepper:h-[calc(100%-1.5rem-0.25rem)]" />
+                  )}
+                </StepperItem>
+              ))}
+            </Stepper>
           </div>
         </div>
       </div>
