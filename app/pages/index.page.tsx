@@ -19,7 +19,7 @@ import type { LinkType, Project } from "~/models";
 export const IndexPage = () => {
   return (
     <>
-      <div className="w-dvw h-dvh flex flex-col px-4 md:px-32 pb-32 overflow-y-auto scrollbar-hidden">
+      <div className="flex flex-col px-4 md:px-32 pb-32">
         <div className="flex flex-col">
           <h1 className="py-2 capitalize font-semibold text-5xl md:text-6xl mt-[calc(50dvh-var(--text-5xl))] md:mt-[calc(50dvh-var(--text-6xl))] bg-radial from-orange-300 to-primary-gradient bg-clip-text text-transparent">
             beyram taglietti
