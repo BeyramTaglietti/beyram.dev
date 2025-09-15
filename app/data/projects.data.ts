@@ -3,7 +3,7 @@ import type { Project } from "~/models";
 export const projects: Array<Project> = [
   {
     title: "norse venture",
-    description: "trip planning cross platform app",
+    description: "Trip planning cross platform app",
     imageUrl: "assets/projects/norse_venture/norse_venture.png",
     links: [
       {

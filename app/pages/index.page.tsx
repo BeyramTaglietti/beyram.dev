@@ -1,11 +1,7 @@
 import { format } from "date-fns";
 import { Fragment, type ReactElement } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import {
-  FaAppStore,
-  FaGlobeAmericas,
-  FaTelegramPlane
-} from "react-icons/fa";
+import { FaAppStore, FaGlobeAmericas, FaTelegramPlane } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import {
@@ -25,23 +21,23 @@ export const IndexPage = () => {
     <>
       <div className="flex flex-col px-4 md:px-32 pb-32">
         <div className="flex flex-col">
-          <h1 className="py-2 capitalize font-semibold text-5xl md:text-6xl mt-[calc(50dvh-var(--text-5xl))] md:mt-[calc(50dvh-var(--text-6xl))] bg-radial from-orange-300 to-primary-gradient bg-clip-text text-transparent">
+          <h1 className="py-2 capitalize font-semibold text-5xl md:text-6xl mt-[calc(50dvh-var(--text-5xl))] md:mt-[calc(50dvh-var(--text-6xl))] bg-gradient-to-tl md:bg-radial from-orange-300 to-primary-gradient bg-clip-text text-transparent">
             beyram taglietti
           </h1>
-          <h2 className="text-xl md:text-3xl capitalize font-semibold">
+          <h2 className="text-2xl md:text-3xl capitalize font-semibold">
             Software Engineer
           </h2>
 
           <div className="flex flex-row gap-4 md:gap-6 mt-4">
             <div className="flex flex-row gap-4 md:gap-6 items-center">
               <a href="https://github.com/BeyramTaglietti" target="_blank">
-                <BsGithub className="cursor-pointer text-primary hover:rotate-16 transition-normal duration-300 size-6 md:size-8" />
+                <BsGithub className="cursor-pointer text-primary hover:rotate-16 transition-normal duration-300 size-8" />
               </a>
               <a
                 href="https://www.linkedin.com/in/beyram-taglietti/"
                 target="_blank"
               >
-                <BsLinkedin className="cursor-pointer text-primary hover:rotate-16 transition-normal duration-300 size-6 md:size-8" />
+                <BsLinkedin className="cursor-pointer text-primary hover:rotate-16 transition-normal duration-300 size-8" />
               </a>
             </div>
           </div>
