@@ -15,13 +15,12 @@ import { RoomContext } from "../context";
 import { InteractiveFlagsEnum, InteractiveModelsEnum } from "../enums";
 import { DeskLamp } from "./DeskLamp";
 import { Flags } from "./Flags";
-import { Gameboy } from "./Gameboy";
 import { Monitor } from "./Monitor";
 import { VinylPlayer } from "./VinylPlayer";
 
 export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
   const { scene } = useGLTF(
-    "/assets/models/room250420.glb",
+    "/assets/models/room250915.glb",
     undefined,
     undefined,
     () => {
@@ -40,7 +39,6 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
   const vinylPlayerRef = useRef<ComponentRef<typeof VinylPlayer>>(null);
   const deskLampRef = useRef<ComponentRef<typeof DeskLamp>>(null);
   const monitorRef = useRef<ComponentRef<typeof Monitor>>(null);
-  const gameboyRef = useRef<ComponentRef<typeof Gameboy>>(null);
 
   const [lookingAt, setLookingAt] = useState<InteractiveModelsEnum | null>(
     null
@@ -97,17 +95,6 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
       case InteractiveModelsEnum.lamp_light_base:
         deskLampRef.current?.toggleLight();
         break;
-      case InteractiveModelsEnum.gameboy_console:
-      case InteractiveModelsEnum.gameboy_screen:
-        if (cameraOnObject === InteractiveModelsEnum.gameboy_screen) {
-          return;
-        }
-
-        disableOrbits();
-        setStartingCameraPosition(camera.position.toArray());
-        gameboyRef.current?.watch();
-        setCameraOnObject(InteractiveModelsEnum.gameboy_screen);
-        break;
       case InteractiveModelsEnum.monitor_screen:
         if (cameraOnObject === InteractiveModelsEnum.monitor_screen) {
           return;
@@ -163,10 +150,6 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
             resetCameraPosition(cameraOnObject, () => {
               if (cameraOnObject === InteractiveModelsEnum.monitor_screen) {
                 monitorRef.current?.stopWatching();
-              } else if (
-                cameraOnObject === InteractiveModelsEnum.gameboy_screen
-              ) {
-                gameboyRef.current?.stopWatching();
               }
               setCameraOnObject(null);
             });
@@ -212,7 +195,6 @@ export const Room = ({ onModelLoaded }: { onModelLoaded: () => void }) => {
       <DeskLamp ref={deskLampRef} />
       <Monitor ref={monitorRef} />
       <Flags lookingAt={lookingAt as InteractiveFlagsEnum | null} />
-      <Gameboy ref={gameboyRef} />
     </>
   );
 };

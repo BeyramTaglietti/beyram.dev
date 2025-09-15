@@ -1,4 +1,4 @@
-export type LinkType = "AppStore" | "Github" | "PlayStore" | "Website";
+export type LinkType = "AppStore" | "Github" | "PlayStore" | "Website" | "Telegram";
 export type Project = {
   title: string;
   description: string;

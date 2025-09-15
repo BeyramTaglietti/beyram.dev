@@ -7,10 +7,10 @@ import {
   useRef,
   useState,
   type ComponentRef,
-  type RefObject
+  type RefObject,
 } from "react";
 import type { Object3D } from "three";
-import { useAnalytics } from "~/hooks";
+import { AnalyticsEvent, useAnalytics } from "~/hooks";
 
 type VinylRef = {
   play: () => void;
@@ -40,7 +40,7 @@ export const VinylPlayer = ({ ref }: { ref?: RefObject<VinylRef | null> }) => {
   });
 
   const playMusic = useCallback(() => {
-    trackEvent("Playing music");
+    trackEvent(AnalyticsEvent.PLAY_MUSIC);
 
     if (audioRef.current) {
       if (isRotating) {

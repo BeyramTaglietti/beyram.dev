@@ -12,9 +12,6 @@ export enum InteractiveModelsEnum {
   flag_switzerland = "flag_switzerland",
   flag_denmark = "flag_denmark",
   flag_norway = "flag_norway",
-
-  gameboy_console = "gameboy_body",
-  gameboy_screen = "gameboy_screen",
 }
 
 export enum InteractiveFlagsEnum {

@@ -11,7 +11,7 @@ import {
 } from "react";
 import { Vector3, type Object3D, type Object3DEventMap } from "three";
 import { MacosHome } from "~/features/macos/components";
-import { useAnalytics, useLookAtObject } from "~/hooks";
+import { AnalyticsEvent, useAnalytics, useLookAtObject } from "~/hooks";
 import { RoomContext } from "../context";
 import { InteractiveModelsEnum } from "../enums";
 
@@ -49,7 +49,7 @@ export const Monitor = ({ ref }: { ref?: RefObject<MonitorRef | null> }) => {
   });
 
   const lookAtMonitor = useCallback(() => {
-    trackEvent("Monitor clicked");
+    trackEvent(AnalyticsEvent.MONITOR_CLICKED);
     lookAtObject(monitorRef);
   }, [lookAtObject, trackEvent]);
 

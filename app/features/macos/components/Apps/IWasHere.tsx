@@ -90,17 +90,20 @@ export const IWasHere = () => {
               </p>
               <ul className="list-disc pl-6">
                 <li>Nuxt</li>
-                <li>Turbopack w/ pnpm</li>
+                <li className="line-through">Turbopack w/ pnpm</li>
                 <li className="line-through">Threejs</li>
                 <li className="line-through">React Three Fiber</li>
                 <li className="line-through">D3js</li>
                 <li>Trpc</li>
                 <li>Tanstack Start</li>
-                <li>Tanstack Form</li>
+                <li className="line-through">Tanstack Form</li>
                 <li className="line-through">Sqlx</li>
-                <li>Sqlc</li>
+                <li className="line-through">Sqlc</li>
                 <li>Redis</li>
                 <li>Elixir + Phoenix</li>
+                <li>Rust</li>
+                <li>Zig</li>
+                <li className="line-through">Sveltekit</li>
               </ul>
             </div>
           )}
@@ -111,13 +114,25 @@ export const IWasHere = () => {
                 As a big fan of fast food, this is the only ranking I accept!
               </p>
               <ul className="list-disc pl-6 w-[90%]">
-                <li>In N Out: 8 (tastes boringly normal but can't argue it's fresh)</li>
+                <li>
+                  In N Out: 8 (tastes boringly normal but can't argue it's
+                  fresh)
+                </li>
                 <li>Raising Canes: 7 1/2 (Too much hype)</li>
-                <li>Shake Shack: 9 1/2 (Undiscussed GOAT, can't even joke about this one)</li>
-                <li>Krispy Kreme 9 1/2 (I'm lucky we don't have that one in Italy, I'd eat that cinnamon roll each and every day)</li>
+                <li>
+                  Shake Shack: 9 1/2 (Undiscussed GOAT, can't even joke about
+                  this one)
+                </li>
+                <li>
+                  Krispy Kreme 9 1/2 (I'm lucky we don't have that one in Italy,
+                  I'd eat that cinnamon roll each and every day)
+                </li>
                 <li>Pizza Hut: 6 1/2</li>
                 <li>Chick Fil A: 8</li>
-                <li>Dunkin Donuts: 6 1/2 (Not even light years close to Krispy Kreme)</li>
+                <li>
+                  Dunkin Donuts: 6 1/2 (Not even light years close to Krispy
+                  Kreme)
+                </li>
                 <li>Chipotle: 7</li>
                 <li>Wendy's 7 1/2</li>
                 <li>Popeyes: 8 1/2</li>

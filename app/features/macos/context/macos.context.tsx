@@ -1,5 +1,5 @@
 import { createContext, useCallback, useMemo, useState } from "react";
-import { useAnalytics } from "~/hooks";
+import { AnalyticsEvent, useAnalytics } from "~/hooks";
 import { IWasHere, NorseVenture, Redo } from "../components";
 import { MacosAppsEnum } from "../enums";
 import type { MacosApp } from "../types";
@@ -52,7 +52,7 @@ export const MacosProvider = ({ children }: { children: React.ReactNode }) => {
 
   const openApp = useCallback(
     (app: MacosAppsEnum) => {
-      trackEvent("Opening an app", { app_name: app });
+      trackEvent(AnalyticsEvent.OPEN_APP, { app_name: app });
       if (appsOpen.includes(app)) {
         setActiveApp(app);
       } else {

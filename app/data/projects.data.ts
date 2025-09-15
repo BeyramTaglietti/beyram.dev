@@ -46,4 +46,15 @@ export const projects: Array<Project> = [
       },
     ],
   },
+  {
+    title: "Oktagon - MMA events reminder",
+    description: "MMA events reminder Telegram miniapp",
+    imageUrl: "assets/projects/oktagon/oktagon.png",
+    links: [
+      {
+        url: "https://t.me/oktagon_events_bot",
+        type: "Telegram",
+      },
+    ],
+  },
 ];

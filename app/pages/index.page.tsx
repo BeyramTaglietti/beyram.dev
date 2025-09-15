@@ -1,7 +1,11 @@
 import { format } from "date-fns";
 import { Fragment, type ReactElement } from "react";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaAppStore, FaGlobeAmericas } from "react-icons/fa";
+import {
+  FaAppStore,
+  FaGlobeAmericas,
+  FaTelegramPlane
+} from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import {
@@ -25,7 +29,7 @@ export const IndexPage = () => {
             beyram taglietti
           </h1>
           <h2 className="text-xl md:text-3xl capitalize font-semibold">
-            frontend engineer
+            Software Engineer
           </h2>
 
           <div className="flex flex-row gap-4 md:gap-6 mt-4">
@@ -113,6 +117,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
         break;
       case "Website":
         Icon = FaGlobeAmericas;
+        break;
+      case "Telegram":
+        Icon = FaTelegramPlane;
         break;
     }
 
