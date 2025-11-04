@@ -57,4 +57,15 @@ export const projects: Array<Project> = [
       },
     ],
   },
+  {
+    title: "TrackIt - AI Calorie Tracker",
+    description: "AI Calorie Tracker Telegram miniapp",
+    imageUrl: "assets/projects/trackit/trackit.png",
+    links: [
+      {
+        url: "https://t.me/trackit_fitness_bot",
+        type: "Telegram",
+      },
+    ],
+  },
 ];
